@@ -4,8 +4,8 @@ My name is Matthias Kleine. I'm a trainer and software developer based in Paderb
 
 💬 Ask me about **Smart Home** and **Building automation** on
 
-- [YouTube](https://www.youtube.com/c/Hausautomatisierung-com/videos)
-- [Twitter](https://twitter.com/haus_automation)
+- [YouTube](https://www.youtube.com/c/Hausautomatisierung-com/videos) ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCRDCsZvUg75Bibp9qYbHivw?style=plastic) ![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCRDCsZvUg75Bibp9qYbHivw?style=plastic)
+- [Twitter](https://twitter.com/haus_automation) ![Twitter Follow](https://img.shields.io/twitter/follow/haus_automation?style=plastic)
 - [Facebook](https://www.facebook.com/HausAutomatisierungCom/)
 - [Instagram](https://www.instagram.com/haus_automation/)
 
