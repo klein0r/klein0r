@@ -9,6 +9,8 @@ My name is Matthias Kleine. I'm a trainer and software developer based in Paderb
 - [Facebook](https://www.facebook.com/HausAutomatisierungCom/)
 - [Instagram](https://www.instagram.com/haus_automation/)
 
+![klein0r GitHub stats](https://github-readme-stats.vercel.app/api?username=klein0r&show_icons=true&theme=dark)
+
 #### ioBroker adapter list
 
 | Adapter                                                                     | Beta-Version                                                                                                                   | Stable-Version                                                                                                          | Downloads                                                                                                                      | Installations                                                                                                                    |
