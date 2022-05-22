@@ -11,6 +11,8 @@ My name is Matthias Kleine. I'm a trainer and software developer based in Paderb
 
 ![klein0r GitHub stats](https://github-readme-stats.vercel.app/api?username=klein0r&show_icons=true&theme=dark)
 
+![klein0r GitHub stats](https://github-readme-stats.vercel.app/api/top-langs/?username=klein0r&hide=perl&theme=dark)
+
 #### ioBroker adapter list
 
 | Adapter                                                                     | Beta-Version                                                                                                                   | Stable-Version                                                                                                          | Downloads                                                                                                                      | Installations                                                                                                                    |
