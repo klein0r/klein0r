@@ -1,13 +1,12 @@
-### Hi there 👋
+## Hi there 👋
+
+<p align=center>
+  <a href="https://www.youtube.com/c/Hausautomatisierung-com/"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCRDCsZvUg75Bibp9qYbHivw?label=haus-automatisierung.com&logo=youtube&style=flat-square"> <img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCRDCsZvUg75Bibp9qYbHivw?logo=youtube&style=flat-square"></a> <a href="https://twitter.com/haus_automation"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/haus_automation?logo=twitter&style=flat-square"></a> <img alt="GitHub followers" src="https://img.shields.io/github/followers/klein0r?logo=github&style=flat-square"> <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/klein0r?affiliations=OWNER&logo=github&style=flat-square">
+</p>
 
 My name is Matthias Kleine. I'm a trainer and software developer based in Paderborn, Germany.
 
 💬 Ask me about **Smart Home** and **Building automation** on
-
-- [YouTube](https://www.youtube.com/c/Hausautomatisierung-com/videos) ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCRDCsZvUg75Bibp9qYbHivw?style=plastic) ![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCRDCsZvUg75Bibp9qYbHivw?style=plastic)
-- [Twitter](https://twitter.com/haus_automation) ![Twitter Follow](https://img.shields.io/twitter/follow/haus_automation?style=plastic)
-- [Facebook](https://www.facebook.com/HausAutomatisierungCom/)
-- [Instagram](https://www.instagram.com/haus_automation/)
 
 ![klein0r GitHub stats](https://github-readme-stats.vercel.app/api?username=klein0r&show_icons=true&theme=calm)
 
