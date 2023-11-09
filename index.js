@@ -80,6 +80,7 @@ function extractRepoUrl(readmeUrl) {
                 weekDownloads: adapterData.weekDownloads,
                 version: {
                     beta: adapterData.version,
+                    betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
                     stable: adapterData.stable ?? '-',
                 },
                 issues: adapterData.issues,
@@ -104,6 +105,9 @@ function extractRepoUrl(readmeUrl) {
             });
         }
     }
+    
+    templateData.adapters.sort((a, b) => b.installations - a.installations);
+    templateData.adaptersContrib.sort((a, b) => b.installations - a.installations);
 
     generateReadme(templateData);
 
