@@ -74,7 +74,7 @@ function extractRepoUrl(readmeUrl) {
             const adapterData = betaRepos[adapter];
 
             templateData.adapters.push({
-                name: adapterData.name,
+                title: adapterData?.titleLang?.en ?? adapterData.title,
                 icon: adapterData.extIcon,
                 url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
@@ -94,7 +94,7 @@ function extractRepoUrl(readmeUrl) {
             const adapterData = betaRepos[adapter];
 
             templateData.adaptersContrib.push({
-                name: adapterData.name,
+                title: adapterData?.titleLang?.en ?? adapterData.title,
                 icon: adapterData.extIcon,
                 url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
