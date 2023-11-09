@@ -46,6 +46,18 @@ async function getData(url) {
     return null;
 }
 
+function extractRepoUrl(readmeUrl) {
+    // "https://github.com/iobroker-community-adapters/ioBroker.accuweather/blob/master/README.md"
+    let times = 0, index = null;
+
+    while (times < 5 && index !== -1) {
+        index = readmeUrl.indexOf('/', index + 1);
+        times++;
+    }
+
+    return readmeUrl.substring(0, index);
+}
+
 (async () => {
     console.log('started...');
 
@@ -63,12 +75,14 @@ async function getData(url) {
 
             templateData.adapters.push({
                 name: adapterData.name,
+                url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
                 weekDownloads: adapterData.weekDownloads,
                 version: {
                     beta: adapterData.version,
                     stable: adapterData.stable ?? '-',
                 },
+                issues: adapterData.issues,
             });
         }
     }
@@ -79,12 +93,14 @@ async function getData(url) {
 
             templateData.adaptersContrib.push({
                 name: adapterData.name,
+                url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
                 weekDownloads: adapterData.weekDownloads,
                 version: {
                     beta: adapterData.version,
                     stable: adapterData.stable ?? '-',
                 },
+                issues: adapterData.issues,
             });
         }
     }
