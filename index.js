@@ -75,6 +75,7 @@ function extractRepoUrl(readmeUrl) {
 
             templateData.adapters.push({
                 name: adapterData.name,
+                icon: adapterData.extIcon,
                 url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
                 weekDownloads: adapterData.weekDownloads,
@@ -94,11 +95,13 @@ function extractRepoUrl(readmeUrl) {
 
             templateData.adaptersContrib.push({
                 name: adapterData.name,
+                icon: adapterData.extIcon,
                 url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
                 weekDownloads: adapterData.weekDownloads,
                 version: {
                     beta: adapterData.version,
+                    betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
                     stable: adapterData.stable ?? '-',
                 },
                 issues: adapterData.issues,
