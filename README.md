@@ -1,18 +1,22 @@
-## Hi there 👋
-
 <p align=center>
-  <a href="https://www.youtube.com/c/Hausautomatisierung-com/"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCRDCsZvUg75Bibp9qYbHivw?label=haus-automatisierung.com&logo=youtube&style=flat-square"> <img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCRDCsZvUg75Bibp9qYbHivw?logo=youtube&style=flat-square"></a> <a href="https://twitter.com/haus_automation"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/haus_automation?logo=twitter&style=flat-square"></a> <img alt="GitHub followers" src="https://img.shields.io/github/followers/klein0r?logo=github&style=flat-square"> <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/klein0r?affiliations=OWNER&logo=github&style=flat-square">
+  <a href="https://www.youtube.com/c/Hausautomatisierung-com/"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCRDCsZvUg75Bibp9qYbHivw?label=haus-automatisierung.com&logo=youtube&style=flat-square"> <img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCRDCsZvUg75Bibp9qYbHivw?logo=youtube&style=flat-square"></a> <img alt="GitHub followers" src="https://img.shields.io/github/followers/klein0r?logo=github&style=flat-square"> <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/klein0r?affiliations=OWNER&logo=github&style=flat-square">
 </p>
 
-My name is Matthias Kleine. I'm a trainer and software developer based in Paderborn, Germany.
+My name is **Matthias Kleine**.
 
-💬 Ask me about **Smart Home** and **Building automation** on
+Self-employed trainer and software developer based in Paderborn, Germany.
 
-![klein0r GitHub stats](https://github-readme-stats.vercel.app/api?username=klein0r&show_icons=true&theme=calm)
+💬 Ask me about **Smart Home** and **Building automation**
 
-![klein0r GitHub stats](https://github-readme-stats.vercel.app/api/top-langs/?username=klein0r&hide=perl&theme=calm)
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=klein0r&show_icons=true&theme=calm" alt="klein0r" />
+</p>
 
-#### ioBroker adapter list
+----
+
+### ioBroker
+
+#### ioBroker adapter list (my adapters)
 
 | Adapter                                                                     | Beta-Version                                                                                                                   | Stable-Version                                                                                                          | Downloads                                                                                                                      | Installations                                                                                                                    |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -26,7 +30,7 @@ My name is Matthias Kleine. I'm a trainer and software developer based in Paderb
 | [ioBroker.awtrix-light](https://github.com/klein0r/ioBroker.awtrix-light)   | [![NPM version](http://img.shields.io/npm/v/iobroker.awtrix-light.svg)](https://www.npmjs.com/package/iobroker.awtrix-light)   | [![Stable](http://iobroker.live/badges/awtrix-light-stable.svg)](http://iobroker.live/badges/awtrix-light-stable.svg)   | [![Downloads](https://img.shields.io/npm/dm/iobroker.awtrix-light.svg)](https://www.npmjs.com/package/iobroker.awtrix-light)   | [![installed](http://iobroker.live/badges/awtrix-light-installed.svg)](http://iobroker.live/badges/awtrix-light-installed.svg)   |
 | [ioBroker.comfoairq](https://github.com/klein0r/ioBroker.comfoairq)         | [![NPM version](http://img.shields.io/npm/v/iobroker.comfoairq.svg)](https://www.npmjs.com/package/iobroker.comfoairq)         | [![Stable](http://iobroker.live/badges/comfoairq.svg)](http://iobroker.live/badges/comfoairq-stable.svg)                | [![Downloads](https://img.shields.io/npm/dm/iobroker.comfoairq.svg)](https://www.npmjs.com/package/iobroker.comfoairq)         | [![installed](http://iobroker.live/badges/comfoairq-installed.svg)](http://iobroker.live/badges/comfoairq-installed.svg)         |
 
-#### ioBroker adapter list (contribution)
+#### ioBroker adapter list (heavy contribution)
 
 | Adapter                                                                                   | Beta-Version                                                                                                             | Stable-Version                                                                                                    | Downloads                                                                                                                | Installations                                                                                                              |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
