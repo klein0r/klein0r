@@ -108,6 +108,7 @@ function extractRepoUrl(readmeUrl) {
                 },
                 package: {
                     dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
+                    keywords: packageData.keywords.join('<br/>'),
                 }
             });
         }
