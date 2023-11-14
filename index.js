@@ -37,8 +37,23 @@ function generateReadme(templateData) {
     }
 }
 
+function generateioBrokerAdapters(templateData) {
+    const MUSTACHE_TEMPLATE = './iobroker-adapters.mustache';
+
+    try {
+        const template = fs.readFileSync(MUSTACHE_TEMPLATE);
+        const output = Mustache.render(template.toString(), templateData);
+        fs.writeFileSync('iobroker-adapters.md', output);
+
+        console.log('generated iobroker-adapters...');
+    } catch (err) {
+        console.error(`Unable to render mustache file "${MUSTACHE_TEMPLATE}": ${err}`);
+    }
+}
+
 async function getData(url) {
-    const response = await axios.get('http://download.iobroker.net/sources-dist-latest.json', { responseType: 'json', timeout: 5000 });
+    console.log(`downloading: ${url}`);
+    const response = await axios.get(url, { responseType: 'json', timeout: 5000 });
     if (response.status === 200) {
         return response.data;
     }
@@ -72,6 +87,7 @@ function extractRepoUrl(readmeUrl) {
     for (const adapter of adapters) {
         if (betaRepos[adapter]) {
             const adapterData = betaRepos[adapter];
+            const ioPackageData = await getData(adapterData.meta);
 
             templateData.adapters.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
@@ -83,8 +99,10 @@ function extractRepoUrl(readmeUrl) {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
                     stable: adapterData.stable ?? '-',
+                    node: adapterData.node,
                 },
                 issues: adapterData.issues,
+                ioPackage: ioPackageData,
             });
         }
     }
@@ -103,6 +121,7 @@ function extractRepoUrl(readmeUrl) {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
                     stable: adapterData.stable ?? '-',
+                    node: adapterData.node,
                 },
                 issues: adapterData.issues,
             });
@@ -113,6 +132,7 @@ function extractRepoUrl(readmeUrl) {
     templateData.adaptersContrib.sort((a, b) => b.installations - a.installations);
 
     generateReadme(templateData);
+    generateioBrokerAdapters(templateData);
 
     console.log('done...');
 })();
