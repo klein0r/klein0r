@@ -88,6 +88,7 @@ function extractRepoUrl(readmeUrl) {
         if (betaRepos[adapter]) {
             const adapterData = betaRepos[adapter];
             const ioPackageData = await getData(adapterData.meta);
+            const packageData = await getData(adapterData.meta.replace('io-package.json', 'package.json'));
 
             templateData.adapters.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
@@ -102,7 +103,12 @@ function extractRepoUrl(readmeUrl) {
                     node: adapterData.node,
                 },
                 issues: adapterData.issues,
-                ioPackage: ioPackageData,
+                ioPackage: {
+                    license: ioPackageData.license,
+                },
+                package: {
+                    dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
+                }
             });
         }
     }
