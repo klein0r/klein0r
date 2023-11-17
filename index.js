@@ -18,6 +18,7 @@ const adapters = [
 
 const adaptersContrib = [
     'shelly',
+    'node-red',
     'pvforecast',
     'statistics',
     'proxmox',
