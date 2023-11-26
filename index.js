@@ -77,11 +77,21 @@ function extractRepoUrl(readmeUrl) {
 (async () => {
     console.log('started...');
 
-    let templateData = {
+    const templateData = {
         generatedAt: new Date().toISOString(),
         adapters: [],
         adaptersContrib: [],
     };
+
+    const ioBrokerForum = await getData('https://forum.iobroker.net/api/user/haus-automatisierung/');
+
+    templateData.forums = {
+        ioBroker: {
+            slug: ioBrokerForum.userslug,
+            posts: ioBrokerForum.counts.posts,
+            topics: ioBrokerForum.counts.topics,
+        }
+    }
 
     const betaRepos = await getData('http://download.iobroker.net/sources-dist-latest.json');
 
