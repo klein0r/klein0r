@@ -18,7 +18,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 ### Forum
 
-1829 posts, 15 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
+1830 posts, 15 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 #### ioBroker adapter list (my adapters)
 
@@ -28,9 +28,9 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.octoprint/master/admin/octoprint.png" alt="OctoPrint" width="25" /> | [OctoPrint](https://github.com/klein0r/ioBroker.octoprint) | 5.1.0<br />34 days ago | **5.1.0** | 2935 | 246 | 5 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.luftdaten/master/admin/luftdaten.png" alt="Luftdaten" width="25" /> | [Luftdaten](https://github.com/klein0r/ioBroker.luftdaten) | 3.1.0<br />34 days ago | **3.1.0** | 1791 | 125 | 1 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/admin/birthdays.png" alt="Birthdays" width="25" /> | [Birthdays](https://github.com/klein0r/ioBroker.birthdays) | 2.4.1<br />29 days ago | **2.4.1** | 1399 | 485 | 2 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix Light" width="25" /> | [Awtrix Light](https://github.com/klein0r/ioBroker.awtrix-light) | 0.10.0<br />36 days ago | **0.10.0** | 1380 | 120 | 8 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix Light" width="25" /> | [Awtrix Light](https://github.com/klein0r/ioBroker.awtrix-light) | 0.10.0<br />37 days ago | **0.10.0** | 1380 | 120 | 8 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.youtube/master/admin/youtube.png" alt="YouTube" width="25" /> | [YouTube](https://github.com/klein0r/ioBroker.youtube) | 4.4.0<br />34 days ago | **4.4.0** | 444 | 30 | 0 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.lametric/master/admin/lametric.png" alt="LaMetric Time" width="25" /> | [LaMetric Time](https://github.com/klein0r/ioBroker.lametric) | 3.1.1<br />32 days ago | **3.1.1** | 413 | 42 | 3 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.lametric/master/admin/lametric.png" alt="LaMetric Time" width="25" /> | [LaMetric Time](https://github.com/klein0r/ioBroker.lametric) | 3.1.1<br />33 days ago | **3.1.1** | 413 | 42 | 3 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.gira-iot/master/admin/gira-iot.png" alt="Gira IoT" width="25" /> | [Gira IoT](https://github.com/klein0r/ioBroker.gira-iot) | 0.4.0<br />57 days ago | **-** | 184 | 2 | 3 |
 
 #### ioBroker adapter list (heavy contribution)
@@ -45,4 +45,4 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 ----
 
-*Generated at: 2023-11-28T04:10:01.922Z*
+*Generated at: 2023-11-28T08:10:25.446Z*
