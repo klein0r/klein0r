@@ -1,8 +1,8 @@
 'use strict';
 
 const fs = require('node:fs');
-const axios = require('axios').default;
 const Mustache = require('mustache');
+const tools = require('./tools');
 
 const adapters = [
     'trashschedule',
@@ -22,7 +22,7 @@ const adaptersContrib = [
     'pvforecast',
     'statistics',
     'proxmox',
-]
+];
 
 function generateReadme(templateData) {
     const MUSTACHE_TEMPLATE = './README.mustache';
@@ -52,16 +52,6 @@ function generateioBrokerAdapters(templateData) {
     }
 }
 
-async function getData(url) {
-    console.log(`downloading: ${url}`);
-    const response = await axios.get(url, { responseType: 'json', timeout: 5000 });
-    if (response.status === 200) {
-        return response.data;
-    }
-
-    return null;
-}
-
 function extractRepoUrl(readmeUrl) {
     // "https://github.com/iobroker-community-adapters/ioBroker.accuweather/blob/master/README.md"
     let times = 0, index = null;
@@ -83,23 +73,29 @@ function extractRepoUrl(readmeUrl) {
         adaptersContrib: [],
     };
 
-    const ioBrokerForum = await getData('https://forum.iobroker.net/api/user/haus-automatisierung/');
+    const ioBrokerForum = await tools.getData('https://forum.iobroker.net/api/user/haus-automatisierung/');
+    const ioBrokerForumPosts = ioBrokerForum.counts.posts;
+    const ioBrokerForumPostsLastMonth = tools.getPreviousMonthValue();
+
+    tools.updateCurrentMonthValue(ioBrokerForumPosts);
 
     templateData.forums = {
         ioBroker: {
             slug: ioBrokerForum.userslug,
-            posts: ioBrokerForum.counts.posts,
+            posts: ioBrokerForumPosts,
+            postsLastMonth: ioBrokerForumPostsLastMonth,
+            postsThisMonth: ioBrokerForumPosts - ioBrokerForumPostsLastMonth,
             topics: ioBrokerForum.counts.topics,
         }
     }
 
-    const betaRepos = await getData('http://download.iobroker.net/sources-dist-latest.json');
+    const betaRepos = await tools.getData('http://download.iobroker.net/sources-dist-latest.json');
 
     for (const adapter of adapters) {
         if (betaRepos[adapter]) {
             const adapterData = betaRepos[adapter];
-            const ioPackageData = await getData(adapterData.meta);
-            const packageData = await getData(adapterData.meta.replace('io-package.json', 'package.json'));
+            const ioPackageData = await tools.getData(adapterData.meta);
+            const packageData = await tools.getData(adapterData.meta.replace('io-package.json', 'package.json'));
 
             templateData.adapters.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
