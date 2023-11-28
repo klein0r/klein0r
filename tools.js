@@ -24,7 +24,7 @@ function getPreviousMonthValue() {
     d.setUTCMonth(d.getUTCMonth() - 1); // Previous month
     d.setUTCDate(1);
 
-    const prevKey = getYearMonthKey(d.getTime());
+    const prevKey = getYearMonthKey(d);
     const ioBrokerForumPosts = JSON.parse(fs.readFileSync('ioBrokerForum.json'));
 
     if (Object.prototype.hasOwnProperty.call(ioBrokerForumPosts, prevKey)) {
@@ -38,7 +38,7 @@ function updateCurrentMonthValue(postCount) {
     const key = getYearMonthKey(new Date());
     const postsByMonth = JSON.parse(fs.readFileSync('ioBrokerForum.json'));
 
-    postsByMonth[key] = posts;
+    postsByMonth[key] = postCount;
 
     fs.writeFileSync('ioBrokerForum.json', JSON.stringify(postsByMonth, null, 2));
 }
