@@ -11,8 +11,8 @@
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix Light" width="25" /> | [Awtrix Light](https://github.com/klein0r/ioBroker.awtrix-light) | Beta: 0.10.0 (37 days ago)<br/>Stable: 0.10.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.1 | ioBroker<br/>Smart Home<br/>home automation<br/>awtrix<br/>ulanzi<br/>tc001<br/>pixel-clock |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.youtube/master/admin/youtube.png" alt="YouTube" width="25" /> | [YouTube](https://github.com/klein0r/ioBroker.youtube) | Beta: 4.4.0 (34 days ago)<br/>Stable: 4.4.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.0 | ioBroker<br/>Smart Home<br/>home automation<br/>youtube<br/>social<br/>video |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.lametric/master/admin/lametric.png" alt="LaMetric Time" width="25" /> | [LaMetric Time](https://github.com/klein0r/ioBroker.lametric) | Beta: 3.1.1 (33 days ago)<br/>Stable: 3.1.1 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.0 | ioBroker<br/>Smart Home<br/>home automation<br/>lametric |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.gira-iot/master/admin/gira-iot.png" alt="Gira IoT" width="25" /> | [Gira IoT](https://github.com/klein0r/ioBroker.gira-iot) | Beta: 0.4.0 (58 days ago)<br/>Stable: - | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.0 | ioBroker<br/>Smart Home<br/>home automation<br/>gira<br/>x1<br/>homeserver<br/>iot |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.gira-iot/master/admin/gira-iot.png" alt="Gira IoT" width="25" /> | [Gira IoT](https://github.com/klein0r/ioBroker.gira-iot) | Beta: 0.4.0 (58 days ago)<br/>Stable: 0.4.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.0 | ioBroker<br/>Smart Home<br/>home automation<br/>gira<br/>x1<br/>homeserver<br/>iot |
 
 ----
 
-*Generated at: 2023-11-28T11:46:24.896Z*
+*Generated at: 2023-11-28T15:46:22.474Z*
