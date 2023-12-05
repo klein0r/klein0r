@@ -28,8 +28,8 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix Light" width="25" /> | [Awtrix Light](https://github.com/klein0r/ioBroker.awtrix-light) | 0.10.1<br />4 days ago | **0.10.0** | 1423 | 343 | 8 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/admin/birthdays.png" alt="Birthdays" width="25" /> | [Birthdays](https://github.com/klein0r/ioBroker.birthdays) | 2.4.1<br />36 days ago | **2.4.1** | 1409 | 325 | 2 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.youtube/master/admin/youtube.png" alt="YouTube" width="25" /> | [YouTube](https://github.com/klein0r/ioBroker.youtube) | 4.4.0<br />41 days ago | **4.4.0** | 446 | 30 | 0 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.lametric/master/admin/lametric.png" alt="LaMetric Time" width="25" /> | [LaMetric Time](https://github.com/klein0r/ioBroker.lametric) | 3.1.1<br />39 days ago | **3.1.1** | 417 | 46 | 5 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.gira-iot/master/admin/gira-iot.png" alt="Gira IoT" width="25" /> | [Gira IoT](https://github.com/klein0r/ioBroker.gira-iot) | 0.4.0<br />64 days ago | **0.4.0** | 190 | 32 | 3 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.lametric/master/admin/lametric.png" alt="LaMetric Time" width="25" /> | [LaMetric Time](https://github.com/klein0r/ioBroker.lametric) | 3.1.1<br />40 days ago | **3.1.1** | 417 | 46 | 5 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.gira-iot/master/admin/gira-iot.png" alt="Gira IoT" width="25" /> | [Gira IoT](https://github.com/klein0r/ioBroker.gira-iot) | 0.4.0<br />65 days ago | **0.4.0** | 190 | 32 | 3 |
 
 ### ioBroker adapter list (heavy contribution)
 
@@ -43,4 +43,4 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 ----
 
-*Generated at: 2023-12-05T07:46:27.836Z*
+*Generated at: 2023-12-05T11:46:18.324Z*
