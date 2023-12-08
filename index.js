@@ -18,10 +18,10 @@ const adapters = [
 
 const adaptersContrib = [
     'shelly',
+    'javascript',
     'node-red',
     'pvforecast',
     'statistics',
-    'proxmox',
 ];
 
 function generateReadme(templateData) {
