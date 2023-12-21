@@ -4,7 +4,7 @@
 
 | | Adapter | Beta-Version  | Node | Dependencies | Keywords |
 |-|---------|---------------|------|--------------|----------|
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.trashschedule/master/admin/trashschedule.png" alt="Trash Schedule" width="25" /> | [Trash Schedule](https://github.com/klein0r/ioBroker.trashschedule) | Beta: 2.3.0 (57 days ago)<br/>Stable: 2.3.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.2 | ioBroker<br/>Smart Home<br/>home automation<br/>trash<br/>calendar<br/>muell<br/>muellabfuhr |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.trashschedule/master/admin/trashschedule.png" alt="Trash Schedule" width="25" /> | [Trash Schedule](https://github.com/klein0r/ioBroker.trashschedule) | Beta: 3.0.0 (1 days ago)<br/>Stable: 2.3.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.2 | ioBroker<br/>Smart Home<br/>home automation<br/>trash<br/>calendar<br/>muell<br/>muellabfuhr |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.octoprint/master/admin/octoprint.png" alt="OctoPrint" width="25" /> | [OctoPrint](https://github.com/klein0r/ioBroker.octoprint) | Beta: 5.1.0 (57 days ago)<br/>Stable: 5.1.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.2 | ioBroker<br/>Smart Home<br/>home automation<br/>octoprint<br/>3d printing |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.luftdaten/master/admin/luftdaten.png" alt="Luftdaten" width="25" /> | [Luftdaten](https://github.com/klein0r/ioBroker.luftdaten) | Beta: 3.1.0 (57 days ago)<br/>Stable: 3.1.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.2 | ioBroker<br/>Smart Home<br/>home automation<br/>luftdaten |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix Light" width="25" /> | [Awtrix Light](https://github.com/klein0r/ioBroker.awtrix-light) | Beta: 0.10.2 (7 days ago)<br/>Stable: 0.10.0 | &gt;&#x3D;16 | @iobroker/adapter-core: ^3.0.4<br/>axios: ^1.6.2 | ioBroker<br/>Smart Home<br/>home automation<br/>awtrix<br/>ulanzi<br/>tc001<br/>pixel-clock |
@@ -15,4 +15,4 @@
 
 ----
 
-*Generated at: 2023-12-21T11:46:08.788Z*
+*Generated at: 2023-12-21T15:46:20.129Z*
