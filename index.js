@@ -78,7 +78,7 @@ async function updateReadme() {
 
     const ioBrokerForumData = await iobForumUtils.getUserData(iobForumUsername);
     const ioBrokerForumPosts = ioBrokerForumData.counts.posts;
-    const ioBrokerForumPostsLastMonth = iobForumUtils.getPreviousMonthValue();
+    const ioBrokerForumPostsLastMonth = iobForumUtils.getPreviousMonthValue(1);
 
     iobForumUtils.updateCurrentMonthValue(ioBrokerForumPosts);
 

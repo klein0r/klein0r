@@ -31,10 +31,10 @@ function getPreviousMonthValue(diffMonth) {
     d.setUTCDate(1);
 
     const prevKey = getYearMonthKey(d);
-    const ioBrokerForumPosts = readStats();
+    const stats = readStats();
 
-    if (Object.prototype.hasOwnProperty.call(ioBrokerForumPosts, prevKey)) {
-        return ioBrokerForumPosts[prevKey];
+    if (Object.prototype.hasOwnProperty.call(stats, prevKey)) {
+        return stats[prevKey];
     } else {
         return undefined;
     }
@@ -42,11 +42,11 @@ function getPreviousMonthValue(diffMonth) {
 
 function updateCurrentMonthValue(postCount) {
     const key = getYearMonthKey(new Date());
-    const postsByMonth = readStats();
+    const stats = readStats();
 
-    postsByMonth[key] = postCount;
+    stats[key] = postCount;
 
-    writeStats(postsByMonth);
+    writeStats(stats);
 }
 
 async function getPosts(username, page) {
@@ -77,7 +77,7 @@ async function collectForumPosts(username) {
     allPosts.sort((a, b) => a.timestamp - b.timestamp);
 
     let totalSoFar = 0;
-    const postsByMonth = allPosts.reduce(
+    const stats = allPosts.reduce(
         (acc, post) => {
             totalSoFar++;
 
@@ -93,7 +93,7 @@ async function collectForumPosts(username) {
         {},
     );
 
-    writeStats(postsByMonth);
+    writeStats(stats);
 }
 
 module.exports = {
