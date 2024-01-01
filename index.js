@@ -1,9 +1,8 @@
 'use strict';
 
-const fs = require('node:fs');
-const Mustache = require('mustache');
 const httpUtils = require('./utils/http');
 const iobForumUtils = require('./utils/iob-forum');
+const templateUtils = require('./utils/template');
 
 const iobForumUsername = 'haus-automatisierung';
 
@@ -26,34 +25,6 @@ const adaptersContrib = [
     'pvforecast',
     'statistics',
 ];
-
-function generateReadme(templateData) {
-    const MUSTACHE_TEMPLATE = './README.mustache';
-
-    try {
-        const template = fs.readFileSync(MUSTACHE_TEMPLATE);
-        const output = Mustache.render(template.toString(), templateData);
-        fs.writeFileSync('README.md', output);
-
-        console.log('generated README...');
-    } catch (err) {
-        console.error(`Unable to render mustache file "${MUSTACHE_TEMPLATE}": ${err}`);
-    }
-}
-
-function generateioBrokerAdapters(templateData) {
-    const MUSTACHE_TEMPLATE = './iobroker-adapters.mustache';
-
-    try {
-        const template = fs.readFileSync(MUSTACHE_TEMPLATE);
-        const output = Mustache.render(template.toString(), templateData);
-        fs.writeFileSync('iobroker-adapters.md', output);
-
-        console.log('generated iobroker-adapters...');
-    } catch (err) {
-        console.error(`Unable to render mustache file "${MUSTACHE_TEMPLATE}": ${err}`);
-    }
-}
 
 function extractRepoUrl(readmeUrl) {
     // "https://github.com/iobroker-community-adapters/ioBroker.accuweather/blob/master/README.md"
@@ -149,8 +120,8 @@ async function updateReadme() {
     templateData.adapters.sort((a, b) => b.installations - a.installations);
     templateData.adaptersContrib.sort((a, b) => b.installations - a.installations);
 
-    generateReadme(templateData);
-    generateioBrokerAdapters(templateData);
+    templateUtils.generateReadme(templateData);
+    templateUtils.generateioBrokerAdapters(templateData);
 }
 
 if (process.argv.includes('--update-readme')) {
