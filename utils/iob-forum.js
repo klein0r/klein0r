@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const httpUtils = require('./http');
 
 const JSON_FILE_NAME = path.join(__dirname, '../ioBrokerForum.json');
 
@@ -19,9 +20,14 @@ function getYearMonthKey(date) {
     return `${date.getUTCFullYear()}-${month < 10 ? '0' + month : month}`;
 }
 
-function getPreviousMonthValue() {
+async function getUserData(username) {
+    const data = await httpUtils.getData(`https://forum.iobroker.net/api/user/${username}/`);
+    return data;
+}
+
+function getPreviousMonthValue(diffMonth) {
     const d = new Date();
-    d.setUTCMonth(d.getUTCMonth() - 1); // Previous month
+    d.setUTCMonth(d.getUTCMonth() - diffMonth); // Previous month
     d.setUTCDate(1);
 
     const prevKey = getYearMonthKey(d);
@@ -45,7 +51,7 @@ function updateCurrentMonthValue(postCount) {
 
 async function getPosts(username, page) {
     console.log(`Getting posts of page ${page}`);
-    const data = await tools.getData(`https://forum.iobroker.net/api/user/${username}/posts?page=${page}`);
+    const data = await httpUtils.getData(`https://forum.iobroker.net/api/user/${username}/posts?page=${page}`);
 
     if (data.posts.length > 0) {
         return data.posts;
@@ -75,7 +81,7 @@ async function collectForumPosts(username) {
         (acc, post) => {
             totalSoFar++;
 
-            const key = tools.getYearMonthKey(new Date(post.timestamp));
+            const key = getYearMonthKey(new Date(post.timestamp));
             if (!Object.prototype.hasOwnProperty.call(acc, key)) {
                 acc[key] = totalSoFar;
             } else {
@@ -91,6 +97,7 @@ async function collectForumPosts(username) {
 }
 
 module.exports = {
+    getUserData,
     getPreviousMonthValue,
     updateCurrentMonthValue,
     collectForumPosts,

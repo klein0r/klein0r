@@ -3,7 +3,7 @@
 const fs = require('node:fs');
 const Mustache = require('mustache');
 const httpUtils = require('./utils/http');
-const iobForum = require('./utils/iob-forum');
+const iobForumUtils = require('./utils/iob-forum');
 
 const iobForumUsername = 'haus-automatisierung';
 
@@ -67,7 +67,7 @@ function extractRepoUrl(readmeUrl) {
     return readmeUrl.substring(0, index);
 }
 
-(async () => {
+async function updateReadme() {
     console.log('started...');
 
     const templateData = {
@@ -76,19 +76,19 @@ function extractRepoUrl(readmeUrl) {
         adaptersContrib: [],
     };
 
-    const ioBrokerForum = await httpUtils.getData(`https://forum.iobroker.net/api/user/${iobForumUsername}/`);
-    const ioBrokerForumPosts = ioBrokerForum.counts.posts;
-    const ioBrokerForumPostsLastMonth = iobForum.getPreviousMonthValue();
+    const ioBrokerForumData = await iobForumUtils.getUserData(iobForumUsername);
+    const ioBrokerForumPosts = ioBrokerForumData.counts.posts;
+    const ioBrokerForumPostsLastMonth = iobForumUtils.getPreviousMonthValue();
 
-    iobForum.updateCurrentMonthValue(ioBrokerForumPosts);
+    iobForumUtils.updateCurrentMonthValue(ioBrokerForumPosts);
 
     templateData.forums = {
         ioBroker: {
-            slug: ioBrokerForum.userslug,
+            slug: ioBrokerForumData.userslug,
             posts: ioBrokerForumPosts,
             postsLastMonth: ioBrokerForumPostsLastMonth,
             postsThisMonth: ioBrokerForumPosts - ioBrokerForumPostsLastMonth,
-            topics: ioBrokerForum.counts.topics,
+            topics: ioBrokerForumData.counts.topics,
         }
     }
 
@@ -144,12 +144,19 @@ function extractRepoUrl(readmeUrl) {
             });
         }
     }
-    
+
     templateData.adapters.sort((a, b) => b.installations - a.installations);
     templateData.adaptersContrib.sort((a, b) => b.installations - a.installations);
 
     generateReadme(templateData);
     generateioBrokerAdapters(templateData);
+}
 
-    console.log('done...');
-})();
+if (process.argv.includes('--update-readme')) {
+    console.log('Updating README.md');
+    updateReadme().then(() => {
+        console.log('done...');
+    });
+} else if (process.argv.includes('--init-forum')) {
+    iobForumUtils.collectForumPosts(iobForumUsername);
+}
