@@ -2,7 +2,10 @@
 
 const fs = require('node:fs');
 const Mustache = require('mustache');
-const tools = require('./tools');
+const httpUtils = require('./utils/http');
+const iobForum = require('./utils/iob-forum');
+
+const iobForumUsername = 'haus-automatisierung';
 
 const adapters = [
     'trashschedule',
@@ -73,11 +76,11 @@ function extractRepoUrl(readmeUrl) {
         adaptersContrib: [],
     };
 
-    const ioBrokerForum = await tools.getData('https://forum.iobroker.net/api/user/haus-automatisierung/');
+    const ioBrokerForum = await httpUtils.getData(`https://forum.iobroker.net/api/user/${iobForumUsername}/`);
     const ioBrokerForumPosts = ioBrokerForum.counts.posts;
-    const ioBrokerForumPostsLastMonth = tools.getPreviousMonthValue();
+    const ioBrokerForumPostsLastMonth = iobForum.getPreviousMonthValue();
 
-    tools.updateCurrentMonthValue(ioBrokerForumPosts);
+    iobForum.updateCurrentMonthValue(ioBrokerForumPosts);
 
     templateData.forums = {
         ioBroker: {
@@ -89,13 +92,13 @@ function extractRepoUrl(readmeUrl) {
         }
     }
 
-    const betaRepos = await tools.getData('http://download.iobroker.net/sources-dist-latest.json');
+    const betaRepos = await httpUtils.getData('http://download.iobroker.net/sources-dist-latest.json');
 
     for (const adapter of adapters) {
         if (betaRepos[adapter]) {
             const adapterData = betaRepos[adapter];
-            const ioPackageData = await tools.getData(adapterData.meta);
-            const packageData = await tools.getData(adapterData.meta.replace('io-package.json', 'package.json'));
+            const ioPackageData = await httpUtils.getData(adapterData.meta);
+            const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
 
             templateData.adapters.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
