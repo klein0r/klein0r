@@ -15,9 +15,9 @@ function writeStats(data) {
 }
 
 function getYearMonthKey(date) {
-    const month = date.getUTCMonth() + 1;
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
 
-    return `${date.getUTCFullYear()}-${month < 10 ? '0' + month : month}`;
+    return `${date.getUTCFullYear()}-${month}`;
 }
 
 async function getUserData(username) {
@@ -27,7 +27,7 @@ async function getUserData(username) {
 
 function getPreviousMonthValue(diffMonth) {
     const d = new Date();
-    d.setUTCMonth(d.getUTCMonth() - diffMonth); // Previous month
+    d.setUTCMonth(d.getUTCMonth() - diffMonth); // Previous months
     d.setUTCDate(1);
 
     const prevKey = getYearMonthKey(d);

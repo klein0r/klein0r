@@ -79,6 +79,7 @@ async function updateReadme() {
     const ioBrokerForumData = await iobForumUtils.getUserData(iobForumUsername);
     const ioBrokerForumPosts = ioBrokerForumData.counts.posts;
     const ioBrokerForumPostsLastMonth = iobForumUtils.getPreviousMonthValue(1);
+    const ioBrokerForumPosts2MonthAgo = iobForumUtils.getPreviousMonthValue(2);
 
     iobForumUtils.updateCurrentMonthValue(ioBrokerForumPosts);
 
@@ -86,8 +87,8 @@ async function updateReadme() {
         ioBroker: {
             slug: ioBrokerForumData.userslug,
             posts: ioBrokerForumPosts,
-            postsLastMonth: ioBrokerForumPostsLastMonth,
-            postsThisMonth: ioBrokerForumPosts - ioBrokerForumPostsLastMonth,
+            postsLastMonth: ioBrokerForumPosts2MonthAgo ? ioBrokerForumPostsLastMonth - ioBrokerForumPosts2MonthAgo : 0,
+            postsThisMonth: ioBrokerForumPostsLastMonth ? ioBrokerForumPosts - ioBrokerForumPostsLastMonth : 0,
             topics: ioBrokerForumData.counts.topics,
         }
     }
