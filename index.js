@@ -38,6 +38,18 @@ function extractRepoUrl(readmeUrl) {
     return readmeUrl.substring(0, index);
 }
 
+function getFirstLineVersion(data) {
+    const lines = data.split('\n');
+    if (lines.length > 0) {
+        const firstLine = lines[0];
+        if (firstLine.startsWith('#')) {
+            return firstLine.replace('#', '').trim();
+        }
+    }
+    
+    return '???';
+}
+
 async function updateReadme() {
     console.log('started...');
 
@@ -71,6 +83,8 @@ async function updateReadme() {
             const adapterData = betaRepos[adapter];
             const ioPackageData = await httpUtils.getData(adapterData.meta);
             const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
+            const issueTemplate = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/ISSUE_TEMPLATE/bug_report.yml'));
+            const issueWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/new-issue.yml'));
 
             templateData.adapters.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
@@ -91,6 +105,10 @@ async function updateReadme() {
                 package: {
                     dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
                     keywords: packageData.keywords.join('<br/>'),
+                },
+                files: {
+                    issueTemplateVersion: getFirstLineVersion(issueTemplate),
+                    issueWorkflowVersion: getFirstLineVersion(issueWorkflow),
                 }
             });
         }
