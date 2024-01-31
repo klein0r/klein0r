@@ -27,13 +27,14 @@ async function getUserData(username) {
 
 function getPreviousMonthValue(diffMonth) {
     const d = new Date();
-    d.setUTCMonth(d.getUTCMonth() - diffMonth); // Previous months
     d.setUTCDate(1);
+    d.setUTCMonth(d.getUTCMonth() - diffMonth); // Previous months
 
     const prevKey = getYearMonthKey(d);
     const stats = readStats();
 
     if (Object.prototype.hasOwnProperty.call(stats, prevKey)) {
+        //console.log(`[getPreviousMonthValue] -${diffMonth} month (${d.toISOString()}): ${stats[prevKey]}`);
         return stats[prevKey];
     } else {
         return undefined;

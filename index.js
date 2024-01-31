@@ -66,6 +66,10 @@ async function updateReadme() {
 
     iobForumUtils.updateCurrentMonthValue(ioBrokerForumPosts);
 
+    console.log(`ioBrokerForumPosts:          ${ioBrokerForumPosts}`);
+    console.log(`ioBrokerForumPostsLastMonth: ${ioBrokerForumPostsLastMonth}`);
+    console.log(`ioBrokerForumPosts2MonthAgo: ${ioBrokerForumPosts2MonthAgo}`);
+
     templateData.forums = {
         ioBroker: {
             slug: ioBrokerForumData.userslug,
