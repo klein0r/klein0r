@@ -16,7 +16,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 ### Forum
 
-2188 posts (203 last month, 1 this month), [18 topics](https://forum.iobroker.net/user/haus-automatisierung/topics) - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
+2190 posts (203 last month, 3 this month), [18 topics](https://forum.iobroker.net/user/haus-automatisierung/topics) - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 ### ioBroker adapter list (my adapters)
 
