@@ -1,11 +1,8 @@
 name: Rebuild README
 
 on:
-  push:
-    branches:
-      - master
   schedule:
-    - cron: '45 3,7,11,15,19,23 * * *'
+    - cron: '45 0,15 * * *'
 
 jobs:
   build:
