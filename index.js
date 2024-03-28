@@ -105,7 +105,7 @@ async function updateReadme() {
                 },
                 issues: adapterData.issues,
                 ioPackage: {
-                    license: ioPackageData?.licenseInformation?.license ?? ioPackageData.license,
+                    license: ioPackageData?.common?.licenseInformation?.license ?? ioPackageData.license,
                 },
                 package: {
                     dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
@@ -140,7 +140,7 @@ async function updateReadme() {
                 },
                 issues: adapterData.issues,
                 ioPackage: {
-                    license: ioPackageData?.licenseInformation?.license ?? ioPackageData.license,
+                    license: ioPackageData?.common?.licenseInformation?.license ?? ioPackageData.license,
                 },
             });
         }
