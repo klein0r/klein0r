@@ -101,15 +101,15 @@ async function updateReadme() {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
                     stable: adapterData.stable ?? '-',
-                    node: adapterData.node,
+                    node: packageData?.engines?.node ?? adapterData.node,
                 },
                 issues: adapterData.issues,
                 ioPackage: {
-                    license: ioPackageData.license,
+                    license: ioPackageData?.licenseInformation?.license ?? ioPackageData.license,
                 },
                 package: {
                     dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
-                    keywords: packageData.keywords.join('<br/>'),
+                    keywords: packageData.keywords.map(k => `- ${k}`).join('<br/>'),
                 },
                 files: {
                     issueTemplateVersion: getFirstLineVersion(issueTemplate),
@@ -123,6 +123,8 @@ async function updateReadme() {
     for (const adapter of adaptersContrib) {
         if (betaRepos[adapter]) {
             const adapterData = betaRepos[adapter];
+            const ioPackageData = await httpUtils.getData(adapterData.meta);
+            const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
 
             templateData.adaptersContrib.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
@@ -134,9 +136,12 @@ async function updateReadme() {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
                     stable: adapterData.stable ?? '-',
-                    node: adapterData.node,
+                    node: packageData?.engines?.node ?? adapterData.node,
                 },
                 issues: adapterData.issues,
+                ioPackage: {
+                    license: ioPackageData?.licenseInformation?.license ?? ioPackageData.license,
+                },
             });
         }
     }
