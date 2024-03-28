@@ -89,6 +89,7 @@ async function updateReadme() {
             const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
             const issueTemplate = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/ISSUE_TEMPLATE/bug_report.yml'));
             const issueWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/new-issue.yml'));
+            const fundingFile = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/FUNDING.yml'));
 
             templateData.adapters.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
@@ -113,6 +114,7 @@ async function updateReadme() {
                 files: {
                     issueTemplateVersion: getFirstLineVersion(issueTemplate),
                     issueWorkflowVersion: getFirstLineVersion(issueWorkflow),
+                    hasFunding: fundingFile && fundingFile.includes('patreon') && fundingFile.includes('/kurse/') ? 'yes' : 'no'
                 }
             });
         }
