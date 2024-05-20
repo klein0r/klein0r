@@ -141,6 +141,8 @@ async function updateReadme() {
             const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
             const newestStats = await getNewsestStats(ioPackageData?.common?.name);
 
+            console.log(`    found stats of ${ioPackageData?.common?.name}: ${JSON.stringify(newestStats)}`);
+
             templateData.adaptersContrib.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
                 icon: adapterData.extIcon,
