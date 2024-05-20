@@ -56,7 +56,7 @@ async function getNewsestStats(name) {
     const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats`);
     const statDates = Object.keys(stats.counts).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
 
-    return stats.counts[statDates[0]];
+    return stats.counts[statDates[0]]?.versions ?? {};
 }
 
 async function updateReadme() {
