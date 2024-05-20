@@ -61,7 +61,7 @@ async function getPosts(username, page) {
     }
 }
 
-async function collectForumPosts(username) {
+async function collectPosts(username) {
     let page = 0;
     let hasPosts = false;
     let allPosts = [];
@@ -101,5 +101,5 @@ module.exports = {
     getUserData,
     getPreviousMonthValue,
     updateCurrentMonthValue,
-    collectForumPosts,
+    collectPosts,
 };

@@ -2,9 +2,11 @@
 
 const httpUtils = require('./utils/http');
 const iobForumUtils = require('./utils/iob-forum');
+const gitHubUtils = require('./utils/github');
 const templateUtils = require('./utils/template');
 
 const iobForumUsername = 'haus-automatisierung';
+const gitHubUsername = 'klein0r';
 
 const adapters = [
     'trashschedule',
@@ -50,6 +52,13 @@ function getFirstLineVersion(data) {
     return '???';
 }
 
+async function getNewsestStats(name) {
+    const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats`);
+    const statDates = Object.keys(stats.counts).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
+
+    return stats.counts[statDates[0]];
+}
+
 async function updateReadme() {
     console.log('started...');
 
@@ -90,6 +99,9 @@ async function updateReadme() {
             const issueTemplate = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/ISSUE_TEMPLATE/bug_report.yml'));
             const issueWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/new-issue.yml'));
             const fundingFile = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/FUNDING.yml'));
+            const newestStats = await getNewsestStats(ioPackageData?.common?.name);
+
+            console.log(`    found stats of ${ioPackageData?.common?.name}: ${JSON.stringify(newestStats)}`);
 
             templateData.adapters.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
@@ -100,7 +112,9 @@ async function updateReadme() {
                 version: {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
+                    betaInstallations: newestStats?.[adapterData.version] ? newestStats?.[adapterData.version] : '-',
                     stable: adapterData.stable ?? '-',
+                    stableInstallations: adapterData?.stable && newestStats?.[adapterData.stable] ? newestStats?.[adapterData.stable] : '-',
                     node: packageData?.engines?.node ?? adapterData.node,
                 },
                 issues: adapterData.issues,
@@ -125,6 +139,7 @@ async function updateReadme() {
             const adapterData = betaRepos[adapter];
             const ioPackageData = await httpUtils.getData(adapterData.meta);
             const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
+            const newestStats = await getNewsestStats(ioPackageData?.common?.name);
 
             templateData.adaptersContrib.push({
                 title: adapterData?.titleLang?.en ?? adapterData.title,
@@ -135,7 +150,9 @@ async function updateReadme() {
                 version: {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
+                    betaInstallations: newestStats?.[adapterData.version] ? newestStats?.[adapterData.version] : '-',
                     stable: adapterData.stable ?? '-',
+                    stableInstallations: adapterData?.stable && newestStats?.[adapterData.stable] ? newestStats?.[adapterData.stable] : '-',
                     node: packageData?.engines?.node ?? adapterData.node,
                 },
                 issues: adapterData.issues,
@@ -159,5 +176,7 @@ if (process.argv.includes('--update-readme')) {
         console.log('done...');
     });
 } else if (process.argv.includes('--init-forum')) {
-    iobForumUtils.collectForumPosts(iobForumUsername);
+    iobForumUtils.collectPosts(iobForumUsername);
+} else if (process.argv.includes('--init-github')) {
+    gitHubUtils.collectContributions(gitHubUsername);
 }
