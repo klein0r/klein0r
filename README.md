@@ -16,14 +16,14 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 ### Forum
 
-3632 posts (187 last month, 68 this month), [25 topics](https://forum.iobroker.net/user/haus-automatisierung/topics) - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
+3634 posts (187 last month, 70 this month), [25 topics](https://forum.iobroker.net/user/haus-automatisierung/topics) - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 ### ioBroker adapter list (my adapters)
 
 | | Adapter | Beta-Version | Stable-Version | Installations | Weekly Downloads | Issues |
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.trashschedule/master/admin/trashschedule.png" alt="Trash Schedule" width="25" /> | [Trash Schedule](https://github.com/klein0r/ioBroker.trashschedule) | 3.3.0<br />140 days ago<br />7618 users | **3.3.0**<br />7618 users | 11016 | 222 | 6 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.octoprint/master/admin/octoprint.png" alt="OctoPrint" width="25" /> | [OctoPrint](https://github.com/klein0r/ioBroker.octoprint) | 5.1.0<br />325 days ago<br />2120 users | **5.1.0**<br />2120 users | 2465 | 42 | 6 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.octoprint/master/admin/octoprint.png" alt="OctoPrint" width="25" /> | [OctoPrint](https://github.com/klein0r/ioBroker.octoprint) | 5.1.0<br />326 days ago<br />2120 users | **5.1.0**<br />2120 users | 2465 | 42 | 6 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix 3 (Awtrix Light)" width="25" /> | [Awtrix 3 (Awtrix Light)](https://github.com/klein0r/ioBroker.awtrix-light) | 1.3.0<br />45 days ago<br />1247 users | **1.3.0**<br />1247 users | 2046 | 263 | 10 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.luftdaten/master/admin/luftdaten.png" alt="Luftdaten" width="25" /> | [Luftdaten](https://github.com/klein0r/ioBroker.luftdaten) | 4.0.0<br />37 days ago<br />679 users | **4.0.0**<br />679 users | 1471 | 145 | 1 |
 | <img src="https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/admin/birthdays.png" alt="Birthdays" width="25" /> | [Birthdays](https://github.com/klein0r/ioBroker.birthdays) | 3.0.1<br />81 days ago<br />951 users | **3.0.1**<br />951 users | 1327 | 51 | 3 |
@@ -37,7 +37,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
 | <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.8.3<br />10 days ago<br />1715 users | **8.7.6**<br />22101 users | 54810 | 4198 | 105 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" alt="Shelly" width="25" /> | [Shelly](https://github.com/iobroker-community-adapters/ioBroker.shelly) | 8.1.1<br />19 days ago<br />1448 users | **7.0.0**<br />16164 users | 28938 | 1136 | 35 |
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 5.2.1<br />140 days ago<br />8212 users | **5.2.1**<br />8212 users | 14167 | 448 | 28 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 5.2.1<br />141 days ago<br />8212 users | **5.2.1**<br />8212 users | 14167 | 448 | 28 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pvforecast/main/admin/pvforecast.png" alt="PV-Forecast" width="25" /> | [PV-Forecast](https://github.com/iobroker-community-adapters/ioBroker.pvforecast) | 3.0.0<br />77 days ago<br />3642 users | **3.0.0**<br />3642 users | 5752 | 226 | 5 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.statistics/master/admin/statistics.png" alt="Statistics for states" width="25" /> | [Statistics for states](https://github.com/iobroker-community-adapters/ioBroker.statistics) | 2.4.0<br />317 days ago<br />2760 users | **2.4.0**<br />2760 users | 3345 | 43 | 3 |
 
