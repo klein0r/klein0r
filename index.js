@@ -18,6 +18,7 @@ const adapters = [
     'gira-iot',
     'awtrix-light',
     'comfoairq',
+    'ecoflow-iot',
 ];
 
 const adaptersContrib = [
