@@ -50,39 +50,40 @@ function updateCurrentMonthValue(postCount) {
     writeStats(stats);
 }
 
-async function getPosts(username, page) {
-    console.log(`Getting posts of page ${page}`);
-    const data = await httpUtils.getData(`https://forum.iobroker.net/api/user/${username}/posts?page=${page}`);
+async function getPosts(username, offset) {
+    console.log(`Getting posts with offset ${offset}`);
+    const data = await httpUtils.getData(`https://community-smarthome.com/user_actions.json?offset=${offset}&username=${username}&filter=5`);
 
-    if (data.posts.length > 0) {
-        return data.posts;
+    if (data.user_actions.length > 0) {
+        return data.user_actions;
     } else {
         return [];
     }
 }
 
 async function collectPosts(username) {
-    let page = 0;
+    let offset = 0;
     let hasPosts = false;
     let allPosts = [];
 
     do {
-        const posts = await getPosts(username, ++page);
+        const posts = await getPosts(username, offset);
         hasPosts = posts.length > 0;
 
         if (hasPosts) {
             allPosts = allPosts.concat(posts);
+            offset += posts.length;
         }
     } while (hasPosts);
 
-    allPosts.sort((a, b) => a.timestamp - b.timestamp);
+    allPosts.sort((a, b) => a.created_at - b.created_at);
 
     let totalSoFar = 0;
     const stats = allPosts.reduce(
         (acc, post) => {
             totalSoFar++;
 
-            const key = getYearMonthKey(new Date(post.timestamp));
+            const key = getYearMonthKey(new Date(post.created_at));
             if (!Object.prototype.hasOwnProperty.call(acc, key)) {
                 acc[key] = totalSoFar;
             } else {

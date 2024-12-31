@@ -192,6 +192,7 @@ if (process.argv.includes('--update-readme')) {
     });
 } else if (process.argv.includes('--init-forums')) {
     iobForumUtils.collectPosts(forumUsernameIoBroker);
+    forumCommunitySmarthomeUtils.collectPosts(forumUsernameCommunitySmarthome);
 } else if (process.argv.includes('--init-github')) {
     gitHubUtils.collectContributions(gitHubUsername);
 }
