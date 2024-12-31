@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const httpUtils = require('./http');
 
-const JSON_FILE_NAME = path.join(__dirname, '../ioBrokerForum.json');
+const JSON_FILE_NAME = path.join(__dirname, '../forum-ioBroker.json');
 
 function readStats() {
     return JSON.parse(fs.readFileSync(JSON_FILE_NAME));

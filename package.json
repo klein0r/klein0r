@@ -21,6 +21,7 @@
     "mustache": "^4.2.0"
   },
   "scripts": {
-    "update-readme": "node index.js --update-readme"
+    "update-readme": "node index.js --update-readme",
+    "init-forums": "node index.js --init-forums"
   }
 }

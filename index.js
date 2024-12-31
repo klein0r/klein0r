@@ -1,11 +1,13 @@
 'use strict';
 
 const httpUtils = require('./utils/http');
-const iobForumUtils = require('./utils/iob-forum');
+const iobForumUtils = require('./utils/forum-iobroker');
+const forumCommunitySmarthomeUtils = require('./utils/forum-communitysmarthome');
 const gitHubUtils = require('./utils/github');
 const templateUtils = require('./utils/template');
 
-const iobForumUsername = 'haus-automatisierung';
+const forumUsernameIoBroker = 'haus-automatisierung';
+const forumUsernameCommunitySmarthome = 'haus_automation';
 const gitHubUsername = 'klein0r';
 
 const adapters = [
@@ -69,7 +71,7 @@ async function updateReadme() {
         adaptersContrib: [],
     };
 
-    const ioBrokerForumData = await iobForumUtils.getUserData(iobForumUsername);
+    const ioBrokerForumData = await iobForumUtils.getUserData(forumUsernameIoBroker);
     const ioBrokerForumPosts = ioBrokerForumData.counts.posts;
     const ioBrokerForumPostsLastMonth = iobForumUtils.getPreviousMonthValue(1);
     const ioBrokerForumPosts2MonthAgo = iobForumUtils.getPreviousMonthValue(2);
@@ -80,6 +82,11 @@ async function updateReadme() {
     console.log(`ioBrokerForumPostsLastMonth: ${ioBrokerForumPostsLastMonth}`);
     console.log(`ioBrokerForumPosts2MonthAgo: ${ioBrokerForumPosts2MonthAgo}`);
 
+    const communitySmarthomeForumData = await forumCommunitySmarthomeUtils.getUserData(forumUsernameCommunitySmarthome);
+    const communitySmarthomeForumPosts = communitySmarthomeForumData.user_summary.post_count;
+
+    forumCommunitySmarthomeUtils.updateCurrentMonthValue(communitySmarthomeForumPosts);
+
     templateData.forums = {
         ioBroker: {
             slug: ioBrokerForumData.userslug,
@@ -87,8 +94,12 @@ async function updateReadme() {
             postsLastMonth: ioBrokerForumPosts2MonthAgo ? ioBrokerForumPostsLastMonth - ioBrokerForumPosts2MonthAgo : 0,
             postsThisMonth: ioBrokerForumPostsLastMonth ? ioBrokerForumPosts - ioBrokerForumPostsLastMonth : 0,
             topics: ioBrokerForumData.counts.topics,
-        }
-    }
+        },
+        communitySmarthome: {
+            posts: communitySmarthomeForumPosts,
+            topics: communitySmarthomeForumData.user_summary.topic_count,
+        },
+    };
 
     const betaRepos = await httpUtils.getData('http://download.iobroker.net/sources-dist-latest.json');
 
@@ -178,8 +189,8 @@ if (process.argv.includes('--update-readme')) {
     updateReadme().then(() => {
         console.log('done...');
     });
-} else if (process.argv.includes('--init-forum')) {
-    iobForumUtils.collectPosts(iobForumUsername);
+} else if (process.argv.includes('--init-forums')) {
+    iobForumUtils.collectPosts(forumUsernameIoBroker);
 } else if (process.argv.includes('--init-github')) {
     gitHubUtils.collectContributions(gitHubUsername);
 }
