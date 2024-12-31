@@ -96,6 +96,7 @@ async function updateReadme() {
             topics: ioBrokerForumData.counts.topics,
         },
         communitySmarthome: {
+            slug: forumUsernameCommunitySmarthome,
             posts: communitySmarthomeForumPosts,
             topics: communitySmarthomeForumData.user_summary.topic_count,
         },

@@ -14,8 +14,8 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 ## Forums
 
-- Community-Smarthome: 
-- ioBroker: 3930 posts (58 last month, 89 this month), [25 topics](https://forum.iobroker.net/user/haus-automatisierung/topics) - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
+- Community-Smarthome: 56 posts, 4 topics - [follow me](https://community-smarthome.com/u/haus_automation/summary)
+- ioBroker: 3930 posts (58 last month, 89 this month), 25 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 ## ioBroker
 
