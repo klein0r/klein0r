@@ -56,10 +56,14 @@ function getFirstLineVersion(data) {
 }
 
 async function getNewsestStats(name) {
-    const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats`);
-    const statDates = Object.keys(stats.counts).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
+    try {
+        const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats`);
+        const statDates = Object.keys(stats.counts).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
 
-    return stats.counts[statDates[0]]?.versions ?? {};
+        return stats.counts[statDates[0]]?.versions ?? {};
+    } catch {
+        return {};
+    }
 }
 
 async function updateReadme() {
@@ -84,6 +88,12 @@ async function updateReadme() {
 
     const communitySmarthomeForumData = await forumCommunitySmarthomeUtils.getUserData(forumUsernameCommunitySmarthome);
     const communitySmarthomeForumPosts = communitySmarthomeForumData.user_summary.post_count;
+    const communitySmarthomeForumPostsLastMonth = forumCommunitySmarthomeUtils.getPreviousMonthValue(1);
+    const communitySmarthomeForumPosts2MonthAgo = forumCommunitySmarthomeUtils.getPreviousMonthValue(2);
+
+    console.log(`communitySmarthomeForumPosts:          ${communitySmarthomeForumPosts}`);
+    console.log(`communitySmarthomeForumPostsLastMonth: ${communitySmarthomeForumPostsLastMonth}`);
+    console.log(`communitySmarthomeForumPosts2MonthAgo: ${communitySmarthomeForumPosts2MonthAgo}`);
 
     forumCommunitySmarthomeUtils.updateCurrentMonthValue(communitySmarthomeForumPosts);
 
@@ -91,13 +101,15 @@ async function updateReadme() {
         ioBroker: {
             slug: ioBrokerForumData.userslug,
             posts: ioBrokerForumPosts,
-            postsLastMonth: ioBrokerForumPosts2MonthAgo ? ioBrokerForumPostsLastMonth - ioBrokerForumPosts2MonthAgo : 0,
+            postsLastMonth: ioBrokerForumPosts2MonthAgo ? ioBrokerForumPostsLastMonth - ioBrokerForumPosts2MonthAgo : ioBrokerForumPosts,
             postsThisMonth: ioBrokerForumPostsLastMonth ? ioBrokerForumPosts - ioBrokerForumPostsLastMonth : 0,
             topics: ioBrokerForumData.counts.topics,
         },
         communitySmarthome: {
             slug: forumUsernameCommunitySmarthome,
             posts: communitySmarthomeForumPosts,
+            postsLastMonth: communitySmarthomeForumPosts2MonthAgo ? communitySmarthomeForumPostsLastMonth - communitySmarthomeForumPosts2MonthAgo : communitySmarthomeForumPosts,
+            postsThisMonth: communitySmarthomeForumPostsLastMonth ? communitySmarthomeForumPosts - communitySmarthomeForumPostsLastMonth : 0,
             topics: communitySmarthomeForumData.user_summary.topic_count,
         },
     };
@@ -133,6 +145,8 @@ async function updateReadme() {
                 issues: adapterData.issues,
                 ioPackage: {
                     license: ioPackageData?.common?.licenseInformation?.license ?? ioPackageData.license,
+                    dependencies: ioPackageData?.common?.dependencies.map(d => Object.keys(d).map(dep => `*iob* ${dep}: ${d[dep]}`).join('<br/>')).join('<br/>'),
+                    globalDependencies: ioPackageData?.common?.globalDependencies.map(d => Object.keys(d).map(dep => `*global* ${dep}: ${d[dep]}`).join('<br/>')).join('<br/>'),
                 },
                 package: {
                     dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
