@@ -14,7 +14,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 ## Forums
 
-- Community-Smarthome: 61 posts (61 last month, 5 this month), 4 topics - [follow me](https://community-smarthome.com/u/haus_automation/summary)
+- Community-Smarthome: 62 posts (62 last month, 6 this month), 4 topics - [follow me](https://community-smarthome.com/u/haus_automation/summary)
 - ioBroker: 3953 posts (89 last month, 23 this month), 26 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 ## ioBroker
@@ -38,7 +38,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
 | <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.8.3<br />128 days ago<br />33754 users | **8.8.3**<br />33754 users | 55088 | 3069 | 105 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" alt="Shelly" width="25" /> | [Shelly](https://github.com/iobroker-community-adapters/ioBroker.shelly) | 8.5.1<br />40 days ago<br />7417 users | **8.5.1**<br />7417 users | 29112 | 7124 | 35 |
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.5<br />11 days ago<br />536 users | **5.2.1**<br />8903 users | 13586 | 825 | 28 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.5<br />12 days ago<br />536 users | **5.2.1**<br />8903 users | 13586 | 825 | 28 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pvforecast/main/admin/pvforecast.png" alt="PV-Forecast" width="25" /> | [PV-Forecast](https://github.com/iobroker-community-adapters/ioBroker.pvforecast) | 4.1.0<br />57 days ago<br />3626 users | **4.1.0**<br />3626 users | 5771 | 371 | 5 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.statistics/master/admin/statistics.png" alt="Statistics for states" width="25" /> | [Statistics for states](https://github.com/iobroker-community-adapters/ioBroker.statistics) | 3.1.0<br />54 days ago<br />305 users | **2.4.0**<br />2498 users | 3210 | 102 | 3 |
 
