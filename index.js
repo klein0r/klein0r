@@ -101,14 +101,14 @@ async function updateReadme() {
         ioBroker: {
             slug: ioBrokerForumData.userslug,
             posts: ioBrokerForumPosts,
-            postsLastMonth: ioBrokerForumPosts2MonthAgo ? ioBrokerForumPostsLastMonth - ioBrokerForumPosts2MonthAgo : ioBrokerForumPosts,
+            postsLastMonth: ioBrokerForumPosts2MonthAgo ? ioBrokerForumPostsLastMonth - ioBrokerForumPosts2MonthAgo : ioBrokerForumPostsLastMonth,
             postsThisMonth: ioBrokerForumPostsLastMonth ? ioBrokerForumPosts - ioBrokerForumPostsLastMonth : 0,
             topics: ioBrokerForumData.counts.topics,
         },
         communitySmarthome: {
             slug: forumUsernameCommunitySmarthome,
             posts: communitySmarthomeForumPosts,
-            postsLastMonth: communitySmarthomeForumPosts2MonthAgo ? communitySmarthomeForumPostsLastMonth - communitySmarthomeForumPosts2MonthAgo : communitySmarthomeForumPosts,
+            postsLastMonth: communitySmarthomeForumPosts2MonthAgo ? communitySmarthomeForumPostsLastMonth - communitySmarthomeForumPosts2MonthAgo : communitySmarthomeForumPostsLastMonth,
             postsThisMonth: communitySmarthomeForumPostsLastMonth ? communitySmarthomeForumPosts - communitySmarthomeForumPostsLastMonth : 0,
             topics: communitySmarthomeForumData.user_summary.topic_count,
         },
