@@ -15,7 +15,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 ## Forums
 
 - Community-Smarthome: 83 posts (22 last month, 5 this month), 4 topics - [follow me](https://community-smarthome.com/u/haus_automation/summary)
-- ioBroker: 4011 posts (59 last month, 22 this month), 26 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
+- ioBroker: 4012 posts (59 last month, 23 this month), 26 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 ## ioBroker
 
@@ -36,9 +36,9 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 | | Adapter | Beta-Version | Stable-Version | Installations | Weekly Downloads | Issues |
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.9.1<br />10 days ago<br />- users | **8.8.3**<br />- users | 54278 | 4096 | 105 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.9.1<br />11 days ago<br />- users | **8.8.3**<br />- users | 54278 | 4096 | 105 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" alt="Shelly" width="25" /> | [Shelly](https://github.com/iobroker-community-adapters/ioBroker.shelly) | 8.5.1<br />66 days ago<br />- users | **8.5.1**<br />- users | 28846 | 1795 | 35 |
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.5<br />37 days ago<br />- users | **5.2.1**<br />- users | 13372 | 538 | 28 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.5<br />38 days ago<br />- users | **5.2.1**<br />- users | 13372 | 538 | 28 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pvforecast/main/admin/pvforecast.png" alt="PV-Forecast" width="25" /> | [PV-Forecast](https://github.com/iobroker-community-adapters/ioBroker.pvforecast) | 4.1.0<br />83 days ago<br />- users | **4.1.0**<br />- users | 5743 | 199 | 5 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.statistics/master/admin/statistics.png" alt="Statistics for states" width="25" /> | [Statistics for states](https://github.com/iobroker-community-adapters/ioBroker.statistics) | 3.1.0<br />80 days ago<br />- users | **2.4.0**<br />- users | 3166 | 64 | 3 |
 
