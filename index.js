@@ -55,12 +55,11 @@ function getFirstLineVersion(data) {
     return '???';
 }
 
-async function getNewsestStats(name) {
+async function getAdapterStats(name) {
     try {
-        const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats/history`);
-        const statDates = Object.keys(stats.counts).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
+        const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats/now`);
 
-        return stats.counts[statDates[0]]?.versions ?? {};
+        return stats?.versions ?? {};
     } catch {
         return {};
     }
@@ -124,7 +123,7 @@ async function updateReadme() {
             const issueTemplate = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/ISSUE_TEMPLATE/bug_report.yml'));
             const issueWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/new-issue.yml'));
             const fundingFile = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/FUNDING.yml'));
-            const newestStats = await getNewsestStats(ioPackageData?.common?.name);
+            const newestStats = await getAdapterStats(ioPackageData?.common?.name);
 
             console.log(`    found stats of ${ioPackageData?.common?.name}: ${JSON.stringify(newestStats)}`);
 
@@ -166,7 +165,7 @@ async function updateReadme() {
             const adapterData = betaRepos[adapter];
             const ioPackageData = await httpUtils.getData(adapterData.meta);
             const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
-            const newestStats = await getNewsestStats(ioPackageData?.common?.name);
+            const newestStats = await getAdapterStats(ioPackageData?.common?.name);
 
             console.log(`    found stats of ${ioPackageData?.common?.name}: ${JSON.stringify(newestStats)}`);
 
