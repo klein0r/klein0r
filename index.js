@@ -57,7 +57,7 @@ function getFirstLineVersion(data) {
 
 async function getNewsestStats(name) {
     try {
-        const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats`);
+        const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats/history`);
         const statDates = Object.keys(stats.counts).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
 
         return stats.counts[statDates[0]]?.versions ?? {};
