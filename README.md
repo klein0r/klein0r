@@ -15,7 +15,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 ## Forums
 
 - Community-Smarthome: 101 posts (19 last month, 4 this month), 4 topics
-- ioBroker: 4127 posts (93 last month, 45 this month), 26 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
+- ioBroker: 4128 posts (93 last month, 46 this month), 26 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 ## ioBroker
 
@@ -36,7 +36,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 | | Adapter | Beta-Version | Stable-Version | Installations | Weekly Downloads | Issues |
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.9.1<br />61 days ago<br />2802 users | **8.8.3**<br />33471 users | 53308 | 1508 | 105 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.9.1<br />62 days ago<br />2802 users | **8.8.3**<br />33471 users | 53308 | 1508 | 105 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" alt="Shelly" width="25" /> | [Shelly](https://github.com/iobroker-community-adapters/ioBroker.shelly) | 9.2.0<br />16 days ago<br />1200 users | **8.5.1**<br />16125 users | 28568 | 1054 | 35 |
 | <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.7<br />5 days ago<br />279 users | **5.2.1**<br />8792 users | 13141 | 743 | 28 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pvforecast/main/admin/pvforecast.png" alt="PV-Forecast" width="25" /> | [PV-Forecast](https://github.com/iobroker-community-adapters/ioBroker.pvforecast) | 4.1.0<br />134 days ago<br />4404 users | **4.1.0**<br />4404 users | 5845 | 160 | 5 |
