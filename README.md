@@ -37,7 +37,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 | | Adapter | Beta-Version | Stable-Version | Installations | Weekly Downloads | Issues |
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.9.1<br />87 days ago<br />3034 users | **8.8.3**<br />33852 users | 52983 | 1528 | 105 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 8.9.1<br />88 days ago<br />3034 users | **8.8.3**<br />33852 users | 52983 | 1528 | 105 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" alt="Shelly" width="25" /> | [Shelly](https://github.com/iobroker-community-adapters/ioBroker.shelly) | 9.4.1<br />7 days ago<br />844 users | **9.2.0**<br />8218 users | 28355 | 5032 | 35 |
 | <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.7<br />31 days ago<br />596 users | **5.2.1**<br />8735 users | 12983 | 577 | 28 |
 | <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pvforecast/main/admin/pvforecast.png" alt="PV-Forecast" width="25" /> | [PV-Forecast](https://github.com/iobroker-community-adapters/ioBroker.pvforecast) | 5.0.0<br />1 days ago<br />- users | **4.1.0**<br />4529 users | 5844 | 149 | 5 |
