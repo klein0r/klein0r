@@ -3,7 +3,7 @@ name: Rebuild README
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 0,15 * * *'
+    - cron: '45 4,19 * * *'
 
 jobs:
   build:
