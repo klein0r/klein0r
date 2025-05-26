@@ -149,6 +149,7 @@ async function updateReadme() {
                 },
                 package: {
                     dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
+                    devDependencies: Object.keys(packageData.devDependencies).filter(dep => dep.startsWith('@iobroker/')).map(dep => `*dev* ${dep}: ${packageData.devDependencies[dep]}`).join('<br/>'),
                     keywords: packageData.keywords.map(k => `- ${k}`).join('<br/>'),
                 },
                 files: {
