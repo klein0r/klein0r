@@ -2,6 +2,10 @@
 
 const axios = require('axios').default;
 
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 async function getText(url) {
     console.log(`downloading text: ${url}`);
     const response = await axios.get(url, { responseType: 'text', timeout: 5000 });
@@ -25,6 +29,10 @@ async function getData(url) {
     const rateLimitRemaining = response?.headers?.['x-ratelimit-remaining'];
     if (rateLimitRemaining) {
         console.log(`  x-ratelimit-remaining: ${rateLimitRemaining}`);
+
+        if (rateLimitRemaining == 1) {
+            await sleep(60000);
+        }
     }
 
     if (response.status === 200) {
