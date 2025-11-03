@@ -15,7 +15,7 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 ## Forums
 
 - Community-Smarthome: 113 posts (4 last month, 0 this month), 7 topics
-- ioBroker: 4381 posts (16 last month, 0 this month), 27 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
+- ioBroker: 4386 posts (16 last month, 5 this month), 27 topics - [follow me](https://forum.iobroker.net/user/haus-automatisierung)
 
 ## ioBroker
 
@@ -23,24 +23,24 @@ Self-employed trainer and software developer based in Paderborn, Germany.
 
 | | Adapter | Beta-Version | Stable-Version | Installations | Weekly Downloads | Issues |
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.trashschedule/master/admin/trashschedule.png" alt="Trash Schedule" width="25" /> | [Trash Schedule](https://github.com/klein0r/ioBroker.trashschedule) | 4.0.1<br />122 days ago<br />908 users | **3.3.0**<br />7160 users | 9618 | 221 | 6 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix 3 (Awtrix Light)" width="25" /> | [Awtrix 3 (Awtrix Light)](https://github.com/klein0r/ioBroker.awtrix-light) | 3.0.0<br />13 days ago<br />192 users | **2.0.0**<br />1460 users | 2216 | 185 | 10 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.octoprint/master/admin/octoprint.png" alt="OctoPrint" width="25" /> | [OctoPrint](https://github.com/klein0r/ioBroker.octoprint) | 6.0.1<br />70 days ago<br />155 users | **5.1.0**<br />1441 users | 1794 | 73 | 6 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/admin/birthdays.png" alt="Birthdays" width="25" /> | [Birthdays](https://github.com/klein0r/ioBroker.birthdays) | 5.0.0<br />4 days ago<br />66 users | **4.0.0**<br />838 users | 1158 | 281 | 3 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.luftdaten/master/admin/luftdaten.png" alt="Luftdaten" width="25" /> | [Luftdaten](https://github.com/klein0r/ioBroker.luftdaten) | 5.0.0<br />124 days ago<br />100 users | **4.0.0**<br />863 users | 1136 | 43 | 1 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.lametric/master/admin/lametric.png" alt="LaMetric" width="25" /> | [LaMetric](https://github.com/klein0r/ioBroker.lametric) | 5.0.0<br />12 days ago<br />19 users | **4.1.0**<br />173 users | 319 | 144 | 5 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.gira-iot/master/admin/gira-iot.png" alt="Gira IoT" width="25" /> | [Gira IoT](https://github.com/klein0r/ioBroker.gira-iot) | 0.6.1<br />185 days ago<br />22 users | **0.5.0**<br />179 users | 226 | 32 | 2 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.youtube/master/admin/youtube.png" alt="YouTube" width="25" /> | [YouTube](https://github.com/klein0r/ioBroker.youtube) | 6.0.0<br />232 days ago<br />103 users | **6.0.0**<br />103 users | 192 | 35 | 1 |
-| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.comfoairq/master/admin/comfoairq.png" alt="ComfoAirQ" width="25" /> | [ComfoAirQ](https://github.com/klein0r/ioBroker.comfoairq) | 0.5.1<br />203 days ago<br />32 users | **-**<br />- users | 96 | 31 | 19 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.trashschedule/master/admin/trashschedule.png" alt="Trash Schedule" width="25" /> | [Trash Schedule](https://github.com/klein0r/ioBroker.trashschedule) | 4.0.1<br />123 days ago<br />909 users | **3.3.0**<br />7158 users | 9616 | 221 | 6 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" alt="Awtrix 3 (Awtrix Light)" width="25" /> | [Awtrix 3 (Awtrix Light)](https://github.com/klein0r/ioBroker.awtrix-light) | 3.0.0<br />14 days ago<br />193 users | **2.0.0**<br />1463 users | 2217 | 185 | 10 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.octoprint/master/admin/octoprint.png" alt="OctoPrint" width="25" /> | [OctoPrint](https://github.com/klein0r/ioBroker.octoprint) | 6.0.1<br />71 days ago<br />155 users | **5.1.0**<br />1439 users | 1793 | 73 | 6 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.birthdays/master/admin/birthdays.png" alt="Birthdays" width="25" /> | [Birthdays](https://github.com/klein0r/ioBroker.birthdays) | 5.0.0<br />5 days ago<br />68 users | **4.0.0**<br />842 users | 1158 | 281 | 3 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.luftdaten/master/admin/luftdaten.png" alt="Luftdaten" width="25" /> | [Luftdaten](https://github.com/klein0r/ioBroker.luftdaten) | 5.0.0<br />125 days ago<br />101 users | **4.0.0**<br />862 users | 1138 | 43 | 1 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.lametric/master/admin/lametric.png" alt="LaMetric" width="25" /> | [LaMetric](https://github.com/klein0r/ioBroker.lametric) | 5.0.0<br />13 days ago<br />20 users | **4.1.0**<br />173 users | 320 | 144 | 5 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.gira-iot/master/admin/gira-iot.png" alt="Gira IoT" width="25" /> | [Gira IoT](https://github.com/klein0r/ioBroker.gira-iot) | 0.6.1<br />186 days ago<br />22 users | **0.5.0**<br />177 users | 224 | 32 | 2 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.youtube/master/admin/youtube.png" alt="YouTube" width="25" /> | [YouTube](https://github.com/klein0r/ioBroker.youtube) | 6.0.0<br />233 days ago<br />106 users | **6.0.0**<br />106 users | 196 | 35 | 1 |
+| <img src="https://raw.githubusercontent.com/klein0r/ioBroker.comfoairq/master/admin/comfoairq.png" alt="ComfoAirQ" width="25" /> | [ComfoAirQ](https://github.com/klein0r/ioBroker.comfoairq) | 0.5.1<br />204 days ago<br />33 users | **-**<br />- users | 96 | 27 | 19 |
 
 ### Adapter list (heavy contribution)
 
 | | Adapter | Beta-Version | Stable-Version | Installations | Weekly Downloads | Issues |
 |-|---------|--------------|----------------|--------------:|-----------------:|-------:|
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.svg" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 9.0.11<br />97 days ago<br />2821 users | **8.9.2**<br />28060 users | 50578 | 2260 | 105 |
-| <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" alt="Shelly" width="25" /> | [Shelly](https://github.com/iobroker-community-adapters/ioBroker.shelly) | 10.4.0<br />21 days ago<br />1227 users | **10.2.0**<br />12179 users | 27262 | 1635 | 35 |
-| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.7<br />224 days ago<br />963 users | **5.2.1**<br />8651 users | 12255 | 435 | 28 |
-| <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pvforecast/main/admin/pvforecast.png" alt="PV-Forecast" width="25" /> | [PV-Forecast](https://github.com/iobroker-community-adapters/ioBroker.pvforecast) | 5.0.0<br />194 days ago<br />3728 users | **5.0.0**<br />3728 users | 5772 | 240 | 5 |
-| <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.statistics/master/admin/statistics.png" alt="Statistics for states" width="25" /> | [Statistics for states](https://github.com/iobroker-community-adapters/ioBroker.statistics) | 4.0.0<br />201 days ago<br />319 users | **2.4.0**<br />2288 users | 2953 | 82 | 3 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.svg" alt="Script Engine" width="25" /> | [Script Engine](https://github.com/iobroker/ioBroker.javascript) | 9.0.11<br />97 days ago<br />2826 users | **8.9.2**<br />28115 users | 50579 | 2260 | 105 |
+| <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" alt="Shelly" width="25" /> | [Shelly](https://github.com/iobroker-community-adapters/ioBroker.shelly) | 10.4.1<br />1 days ago<br />1 users | **10.4.0**<br />1238 users | 27263 | 1635 | 35 |
+| <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.node-red/master/admin/node-red.png" alt="Node-RED" width="25" /> | [Node-RED](https://github.com/ioBroker/ioBroker.node-red) | 6.0.7<br />225 days ago<br />957 users | **5.2.1**<br />8649 users | 12243 | 435 | 28 |
+| <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pvforecast/main/admin/pvforecast.png" alt="PV-Forecast" width="25" /> | [PV-Forecast](https://github.com/iobroker-community-adapters/ioBroker.pvforecast) | 5.0.0<br />195 days ago<br />3729 users | **5.0.0**<br />3729 users | 5767 | 240 | 5 |
+| <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.statistics/master/admin/statistics.png" alt="Statistics for states" width="25" /> | [Statistics for states](https://github.com/iobroker-community-adapters/ioBroker.statistics) | 4.0.0<br />202 days ago<br />321 users | **2.4.0**<br />2290 users | 2956 | 82 | 3 |
 
 [![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png?2025)](https://haus-automatisierung.com/iobroker-kurs/?refid=github-profile)
