@@ -122,6 +122,7 @@ async function updateReadme() {
             const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
             const issueTemplate = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/ISSUE_TEMPLATE/bug_report.yml'));
             const issueWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/new-issue.yml'));
+            const issueLockWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/lock-old-issues.yml'));
             const fundingFile = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/FUNDING.yml'));
             const newestStats = await getAdapterStats(ioPackageData?.common?.name);
 
@@ -155,6 +156,7 @@ async function updateReadme() {
                 files: {
                     issueTemplateVersion: getFirstLineVersion(issueTemplate),
                     issueWorkflowVersion: getFirstLineVersion(issueWorkflow),
+                    issueLockWorkflowVersion: getFirstLineVersion(issueLockWorkflow),
                     hasFunding: fundingFile && fundingFile.includes('patreon') && fundingFile.includes('/kurse/') ? 'yes' : 'no'
                 }
             });
