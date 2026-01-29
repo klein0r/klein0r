@@ -44,6 +44,10 @@ function extractRepoUrl(readmeUrl) {
 }
 
 function getFirstLineVersion(data) {
+    if (!data) {
+        return 'n/a';
+    }
+
     const lines = data.split('\n');
     if (lines.length > 0) {
         const firstLine = lines[0];
