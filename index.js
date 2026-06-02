@@ -117,7 +117,7 @@ async function updateReadme() {
         },
     };
 
-    const betaRepos = await httpUtils.getData('http://download.iobroker.net/sources-dist-latest.json');
+    const betaRepos = await httpUtils.getData('https://download.iobroker.net/sources-dist-latest.json');
 
     for (const adapter of adapters) {
         if (betaRepos[adapter]) {
@@ -137,7 +137,6 @@ async function updateReadme() {
                 icon: adapterData.extIcon,
                 url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
-                weekDownloads: adapterData.weekDownloads,
                 version: {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
@@ -181,7 +180,6 @@ async function updateReadme() {
                 icon: adapterData.extIcon,
                 url: extractRepoUrl(adapterData.readme),
                 installations: adapterData.stat,
-                weekDownloads: adapterData.weekDownloads,
                 version: {
                     beta: adapterData.version,
                     betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
