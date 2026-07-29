@@ -41,6 +41,10 @@ async function getAdapterStats(name) {
     }
 }
 
+function daysSince(date) {
+    return Math.ceil(Math.abs(Date.now() - new Date(date).getTime()) / (1000 * 60 * 60 * 24));
+}
+
 async function collectAdapterInformation(adapterSlug, adapterData, gitHubUsername) {
     let ioPackageUrl = adapterData?.meta;
 
@@ -50,15 +54,14 @@ async function collectAdapterInformation(adapterSlug, adapterData, gitHubUsernam
     }
 
     const ioPackageData = await httpUtils.getData(ioPackageUrl);
+    const npmData = await gitHubUtils.getLatestNpmInfo(`iobroker.${adapterSlug}`);
+
     const packageData = await httpUtils.getData(ioPackageUrl.replace('io-package.json', 'package.json'));
     const issueTemplate = await httpUtils.getText(ioPackageUrl.replace('io-package.json', '.github/ISSUE_TEMPLATE/bug_report.yml'));
     const issueWorkflow = await httpUtils.getText(ioPackageUrl.replace('io-package.json', '.github/workflows/new-issue.yml'));
     const issueLockWorkflow = await httpUtils.getText(ioPackageUrl.replace('io-package.json', '.github/workflows/lock-old-issues.yml'));
     const fundingFile = await httpUtils.getText(ioPackageUrl.replace('io-package.json', '.github/FUNDING.yml'));
     const newestStats = await getAdapterStats(ioPackageData?.common?.name);
-
-    console.log(`    found stats of ${ioPackageData?.common?.name}: ${JSON.stringify(newestStats)}`);
-
     const betaVersion = ioPackageData?.common?.version;
 
     return {
@@ -68,7 +71,7 @@ async function collectAdapterInformation(adapterSlug, adapterData, gitHubUsernam
         installations: adapterData?.stat ?? '-',
         version: {
             beta: betaVersion,
-            betaAge: adapterData?.versionDate ? Math.ceil(Math.abs(Date.now() - new Date(adapterData?.versionDate).getTime()) / (1000 * 60 * 60 * 24)) : '-',
+            betaAge: npmData?.time?.[betaVersion] ? daysSince(npmData?.time?.[betaVersion]) : '??',
             betaInstallations: newestStats?.[betaVersion] ?? '-',
             stable: adapterData?.stable ?? '-',
             stableInstallations: adapterData?.stable && newestStats?.[adapterData.stable] ? newestStats?.[adapterData.stable] : '-',
