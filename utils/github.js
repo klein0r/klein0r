@@ -6,8 +6,15 @@ const httpUtils = require('./http');
 
 const JSON_FILE_NAME = path.join(__dirname, '../gitHubContributions.json');
 
+async function getRepository(username, repo) {
+    console.log(`Getting reposistory ${repo} of user ${username}`);
+    const data = await httpUtils.getData(`https://api.github.com/repos/${username}/${repo}`);
+
+    return data;
+}
+
 async function getContributions(username, page) {
-    console.log(`Getting user events of page ${page}`);
+    console.log(`Getting user events of page ${page} of user ${username}`);
     const data = await httpUtils.getData(`https://api.github.com/users/${username}/events?page=${page}`);
 
     if (Array.isArray(data) && data.length > 0) {
@@ -72,6 +79,7 @@ async function collectContributions(username) {
 }
 
 module.exports = {
+    getRepository,
     getContributors,
     collectContributions,
 };
