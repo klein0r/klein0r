@@ -3,6 +3,7 @@
 const httpUtils = require('./utils/http');
 const iobForumUtils = require('./utils/forum-iobroker');
 const forumCommunitySmarthomeUtils = require('./utils/forum-communitysmarthome');
+const iobrokerUtils = require('./utils/iobroker');
 const gitHubUtils = require('./utils/github');
 const templateUtils = require('./utils/template');
 
@@ -31,44 +32,6 @@ const adaptersContrib = [
     'pvforecast',
     'statistics',
 ];
-
-function extractRepoUrl(readmeUrl) {
-    // "https://github.com/iobroker-community-adapters/ioBroker.accuweather/blob/master/README.md"
-    let times = 0, index = null;
-
-    while (times < 5 && index !== -1) {
-        index = readmeUrl.indexOf('/', index + 1);
-        times++;
-    }
-
-    return readmeUrl.substring(0, index);
-}
-
-function getFirstLineVersion(data) {
-    if (!data) {
-        return 'n/a';
-    }
-
-    const lines = data.split('\n');
-    if (lines.length > 0) {
-        const firstLine = lines[0];
-        if (firstLine.startsWith('#')) {
-            return firstLine.replace('#', '').trim();
-        }
-    }
-    
-    return '???';
-}
-
-async function getAdapterStats(name) {
-    try {
-        const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats/now`);
-
-        return stats?.versions ?? {};
-    } catch {
-        return {};
-    }
-}
 
 async function updateReadme() {
     console.log('started...');
@@ -120,81 +83,16 @@ async function updateReadme() {
 
     const betaRepos = await httpUtils.getData('https://download.iobroker.net/sources-dist-latest.json');
 
-    for (const adapter of adapters) {
-        if (betaRepos[adapter]) {
-            const adapterData = betaRepos[adapter];
-            const ioPackageData = await httpUtils.getData(adapterData.meta);
-            const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
-            const issueTemplate = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/ISSUE_TEMPLATE/bug_report.yml'));
-            const issueWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/new-issue.yml'));
-            const issueLockWorkflow = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/workflows/lock-old-issues.yml'));
-            const fundingFile = await httpUtils.getText(adapterData.meta.replace('io-package.json', '.github/FUNDING.yml'));
-            const newestStats = await getAdapterStats(ioPackageData?.common?.name);
+    for (const adapterSlug of adapters) {
+        const adapterData = Object.prototype.hasOwnProperty.call(betaRepos, adapterSlug) ? betaRepos[adapterSlug] : null;
 
-            console.log(`    found stats of ${ioPackageData?.common?.name}: ${JSON.stringify(newestStats)}`);
-
-            templateData.adapters.push({
-                title: adapterData?.titleLang?.en ?? adapterData.title,
-                icon: adapterData.extIcon,
-                url: extractRepoUrl(adapterData.readme),
-                installations: adapterData.stat,
-                version: {
-                    beta: adapterData.version,
-                    betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
-                    betaInstallations: newestStats?.[adapterData.version] ? newestStats?.[adapterData.version] : '-',
-                    stable: adapterData.stable ?? '-',
-                    stableInstallations: adapterData?.stable && newestStats?.[adapterData.stable] ? newestStats?.[adapterData.stable] : '-',
-                    node: packageData?.engines?.node ?? adapterData.node,
-                },
-                issues: adapterData.issues,
-                ioPackage: {
-                    license: ioPackageData?.common?.licenseInformation?.license ?? ioPackageData.license,
-                    dependencies: ioPackageData?.common?.dependencies.map(d => Object.keys(d).map(dep => `*iob* ${dep}: ${d[dep]}`).join('<br/>')).join('<br/>'),
-                    globalDependencies: ioPackageData?.common?.globalDependencies.map(d => Object.keys(d).map(dep => `*global* ${dep}: ${d[dep]}`).join('<br/>')).join('<br/>'),
-                },
-                package: {
-                    dependencies: Object.keys(packageData.dependencies).map(dep => `${dep}: ${packageData.dependencies[dep]}`).join('<br/>'),
-                    devDependencies: Object.keys(packageData.devDependencies).filter(dep => dep.startsWith('@iobroker/')).map(dep => `*dev* ${dep}: ${packageData.devDependencies[dep]}`).join('<br/>'),
-                    keywords: packageData.keywords.map(k => `- ${k}`).join('<br/>'),
-                },
-                files: {
-                    issueTemplateVersion: getFirstLineVersion(issueTemplate),
-                    issueWorkflowVersion: getFirstLineVersion(issueWorkflow),
-                    issueLockWorkflowVersion: getFirstLineVersion(issueLockWorkflow),
-                    hasFunding: fundingFile && fundingFile.includes('patreon') && fundingFile.includes('/kurse/') ? 'yes' : 'no'
-                }
-            });
-        }
+        templateData.adapters.push(await iobrokerUtils.collectAdapterInformation(adapterSlug, adapterData, gitHubUsername));
     }
 
-    for (const adapter of adaptersContrib) {
-        if (betaRepos[adapter]) {
-            const adapterData = betaRepos[adapter];
-            const ioPackageData = await httpUtils.getData(adapterData.meta);
-            const packageData = await httpUtils.getData(adapterData.meta.replace('io-package.json', 'package.json'));
-            const newestStats = await getAdapterStats(ioPackageData?.common?.name);
+    for (const adapterSlug of adaptersContrib) {
+        const adapterData = Object.prototype.hasOwnProperty.call(betaRepos, adapterSlug) ? betaRepos[adapterSlug] : null;
 
-            console.log(`    found stats of ${ioPackageData?.common?.name}: ${JSON.stringify(newestStats)}`);
-
-            templateData.adaptersContrib.push({
-                title: adapterData?.titleLang?.en ?? adapterData.title,
-                icon: adapterData.extIcon,
-                url: extractRepoUrl(adapterData.readme),
-                installations: adapterData.stat,
-                version: {
-                    beta: adapterData.version,
-                    betaAge: Math.ceil(Math.abs(Date.now() - new Date(adapterData.versionDate).getTime()) / (1000 * 60 * 60 * 24)),
-                    betaInstallations: newestStats?.[adapterData.version] ? newestStats?.[adapterData.version] : '-',
-                    stable: adapterData.stable ?? '-',
-                    stableInstallations: adapterData?.stable && newestStats?.[adapterData.stable] ? newestStats?.[adapterData.stable] : '-',
-                    node: packageData?.engines?.node ?? adapterData.node,
-                },
-                issues: adapterData.issues,
-                ioPackage: {
-                    license: ioPackageData?.common?.licenseInformation?.license ?? ioPackageData.license,
-                },
-            });
-        }
+        templateData.adaptersContrib.push(await iobrokerUtils.collectAdapterInformation(adapterSlug, adapterData, gitHubUsername));
     }
 
     templateData.adapters.sort((a, b) => b.installations - a.installations);
