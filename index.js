@@ -19,6 +19,7 @@ const adapters = [
     'lametric',
     'gira-iot',
     'awtrix-light',
+    'awtrix-ng',
     'comfoairq',
     'ecoflow-iot',
 ];
