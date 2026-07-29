@@ -40,6 +40,7 @@ async function updateReadme() {
         generatedAt: new Date().toISOString(),
         adapters: [],
         adaptersContrib: [],
+        npmPackages: [],
     };
 
     const ioBrokerForumData = await iobForumUtils.getUserData(forumUsernameIoBroker);
@@ -97,6 +98,29 @@ async function updateReadme() {
 
     templateData.adapters.sort((a, b) => b.installations - a.installations);
     templateData.adaptersContrib.sort((a, b) => b.installations - a.installations);
+
+    // Npm
+    const npmPackages = [
+        'axios',
+        '@iobroker/adapter-core',
+        '@iobroker/adapter-dev',
+        '@iobroker/eslint-config',
+        '@iobroker/testing',
+    ];
+
+    for (const npmPackage of npmPackages) {
+        const npmData = await gitHubUtils.getLatestNpmInfo(npmPackage);
+
+        if (npmData) {
+            const latestVersion = npmData?.['dist-tags']?.latest;
+
+            templateData.npmPackages.push({
+                package: npmPackage,
+                version: latestVersion,
+                date: npmData?.time?.[latestVersion] ?? '-',
+            });
+        }
+    }
 
     templateUtils.generateReadme(templateData);
     templateUtils.generateioBrokerAdapters(templateData);

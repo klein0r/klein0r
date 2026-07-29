@@ -78,8 +78,19 @@ async function collectContributions(username) {
     writeStats(stats);
 }
 
+async function getLatestNpmInfo(packageName) {
+    try {
+        const data = await httpUtils.getData(`https://registry.npmjs.org/${packageName}`);
+
+        return data;
+    } catch {
+        return null;
+    }
+}
+
 module.exports = {
     getRepository,
     getContributors,
     collectContributions,
+    getLatestNpmInfo,
 };
