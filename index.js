@@ -12,25 +12,26 @@ const forumUsernameCommunitySmarthome = 'haus_automation';
 const gitHubUsername = 'klein0r';
 
 const adapters = [
-    'trashschedule',
-    'birthdays',
-    'luftdaten',
-    'octoprint',
-    'youtube',
-    'lametric',
-    'gira-iot',
     'awtrix-light',
     'awtrix-ng',
+    'birthdays',
     'comfoairq',
     'ecoflow-iot',
+    'gira-iot',
+    'lametric',
+    'luftdaten',
+    'octoprint',
+    'shelly-ng',
+    'trashschedule',
+    'youtube',
 ];
 
 const adaptersContrib = [
-    'shelly',
-    'javascript',
-    'node-red',
-    'pvforecast',
-    'statistics',
+    { gitHubUsername: 'ioBroker', adapterSlug: 'javascript' },
+    { gitHubUsername: 'ioBroker', adapterSlug: 'node-red' },
+    { gitHubUsername: 'iobroker-community-adapters', adapterSlug: 'pvforecast' },
+    { gitHubUsername: 'iobroker-community-adapters', adapterSlug: 'shelly' },
+    { gitHubUsername: 'iobroker-community-adapters', adapterSlug: 'statistics' },
 ];
 
 async function updateReadme() {
@@ -87,13 +88,17 @@ async function updateReadme() {
     for (const adapterSlug of adapters) {
         const adapterData = Object.prototype.hasOwnProperty.call(betaRepos, adapterSlug) ? betaRepos[adapterSlug] : null;
 
-        templateData.adapters.push(await iobrokerUtils.collectAdapterInformation(adapterSlug, adapterData, gitHubUsername));
+        templateData.adapters.push(
+            await iobrokerUtils.collectAdapterInformation(adapterSlug, adapterData, gitHubUsername)
+        );
     }
 
-    for (const adapterSlug of adaptersContrib) {
-        const adapterData = Object.prototype.hasOwnProperty.call(betaRepos, adapterSlug) ? betaRepos[adapterSlug] : null;
+    for (const adapter of adaptersContrib) {
+        const adapterData = Object.prototype.hasOwnProperty.call(betaRepos, adapter.adapterSlug) ? betaRepos[adapter.adapterSlug] : null;
 
-        templateData.adaptersContrib.push(await iobrokerUtils.collectAdapterInformation(adapterSlug, adapterData, gitHubUsername));
+        templateData.adaptersContrib.push(
+            await iobrokerUtils.collectAdapterInformation(adapter.adapterSlug, adapterData, adapter.gitHubUsername)
+        );
     }
 
     templateData.adapters.sort((a, b) => b.installations - a.installations);

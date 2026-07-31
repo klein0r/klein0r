@@ -45,10 +45,10 @@ function daysSince(date) {
     return Math.ceil(Math.abs(Date.now() - new Date(date).getTime()) / (1000 * 60 * 60 * 24));
 }
 
-async function collectAdapterInformation(adapterSlug, adapterData, gitHubUsername) {
+async function collectAdapterInformation(adapterSlug, adapterData, gitHubUsername = null) {
     let ioPackageUrl = adapterData?.meta;
 
-    if (!ioPackageUrl) {
+    if (!ioPackageUrl && gitHubUsername) {
         const repositoryInformation = await gitHubUtils.getRepository(gitHubUsername, `ioBroker.${adapterSlug}`);
         ioPackageUrl = `https://raw.githubusercontent.com/${gitHubUsername}/ioBroker.${adapterSlug}/${repositoryInformation.default_branch}/io-package.json`;
     }
