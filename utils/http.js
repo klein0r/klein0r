@@ -5,12 +5,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 
+const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15';
+
 function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
 
 function hashForCache(url) {
-    console.log(`hashing url (${typeof url}): ${url}`);
+    // console.log(`hashing url (${typeof url}): ${url}`);
     return crypto.createHash('md5').update(url).digest('hex');
 }
 
@@ -35,12 +37,18 @@ async function getText(url) {
     try {
         const cachedFile = getCached(url);
         if (cachedFile !== null) {
-            console.log(`loaded data (${typeof cachedFile}) from cache for: ${url}`);
+            console.log(`loaded data (${typeof cachedFile}) from cache for: ${url} [${hashForCache(url)}]`);
             return cachedFile;
         }
 
-        console.log(`downloading text: ${url}`);
-        const response = await axios.get(url, { responseType: 'text', timeout: 5000 });
+        console.log(`downloading text: ${url} [cache miss]`);
+        const response = await axios.get(url, {
+            responseType: 'json',
+            timeout: 5000,
+            headers: {
+                'User-Agent': USER_AGENT,
+            }
+        });
 
         const rateLimitRemaining = response?.headers?.['x-ratelimit-remaining'];
         if (rateLimitRemaining) {
@@ -50,6 +58,8 @@ async function getText(url) {
         if (response.status === 200) {
             saveCached(url, response.data);
             return response.data;
+        } else {
+            console.log(`downloading text of ${url} failed: ${response.status}`);
         }
 
         return null;
@@ -60,30 +70,43 @@ async function getText(url) {
 }
 
 async function getData(url) {
-    const cachedFile = getCached(url);
-    if (cachedFile !== null) {
-        console.log(`loaded data (${typeof cachedFile}) from cache for: ${url}`);
-        return JSON.parse(cachedFile);
-    }
-
-    console.log(`downloading data: ${url}`);
-    const response = await axios.get(url, { responseType: 'json', timeout: 5000 });
-
-    const rateLimitRemaining = response?.headers?.['x-ratelimit-remaining'];
-    if (rateLimitRemaining) {
-        console.log(`  x-ratelimit-remaining: ${rateLimitRemaining}`);
-
-        if (rateLimitRemaining == 1) {
-            await sleep(60000);
+    try {
+        const cachedFile = getCached(url);
+        if (cachedFile !== null) {
+            console.log(`loaded data (${typeof cachedFile}) from cache for: ${url} [${hashForCache(url)}]`);
+            return JSON.parse(cachedFile);
         }
-    }
 
-    if (response.status === 200) {
-        saveCached(url, JSON.stringify(response.data, null, 2));
-        return response.data;
-    }
+        console.log(`downloading data: ${url} [cache miss]`);
+        const response = await axios.get(url, {
+            responseType: 'json',
+            timeout: 5000,
+            headers: {
+                'User-Agent': USER_AGENT,
+            }
+        });
 
-    return null;
+        const rateLimitRemaining = response?.headers?.['x-ratelimit-remaining'];
+        if (rateLimitRemaining) {
+            console.log(`  x-ratelimit-remaining: ${rateLimitRemaining}`);
+
+            if (rateLimitRemaining == 1) {
+                await sleep(60000);
+            }
+        }
+
+        if (response.status === 200) {
+            saveCached(url, JSON.stringify(response.data, null, 2));
+            return response.data;
+        } else {
+            console.log(`downloading data of ${url} failed: ${response.status}`);
+        }
+
+        return null;
+    } catch (err) {
+        console.log(`  http error: ${err}`);
+        return null;
+    }
 }
 
 module.exports = {
