@@ -4,6 +4,7 @@ const axios = require('axios').default;
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const https = require('node:https');
 
 const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15';
 
@@ -44,7 +45,8 @@ async function getText(url) {
         console.log(`downloading text: ${url} [cache miss]`);
         const response = await axios.get(url, {
             responseType: 'json',
-            timeout: 5000,
+            timeout: 60000,
+            httpsAgent: new https.Agent({ family: 4 }),
             headers: {
                 'User-Agent': USER_AGENT,
             }
@@ -80,7 +82,8 @@ async function getData(url) {
         console.log(`downloading data: ${url} [cache miss]`);
         const response = await axios.get(url, {
             responseType: 'json',
-            timeout: 5000,
+            timeout: 60000,
+            httpsAgent: new https.Agent({ family: 4 }),
             headers: {
                 'User-Agent': USER_AGENT,
             }
