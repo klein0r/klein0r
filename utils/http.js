@@ -55,6 +55,10 @@ async function getText(url) {
         const rateLimitRemaining = response?.headers?.['x-ratelimit-remaining'];
         if (rateLimitRemaining) {
             console.log(`  x-ratelimit-remaining: ${rateLimitRemaining}`);
+
+            if (rateLimitRemaining <= 1) {
+                await sleep(60000);
+            }
         }
 
         if (response.status === 200) {
@@ -93,7 +97,7 @@ async function getData(url) {
         if (rateLimitRemaining) {
             console.log(`  x-ratelimit-remaining: ${rateLimitRemaining}`);
 
-            if (rateLimitRemaining == 1) {
+            if (rateLimitRemaining <= 1) {
                 await sleep(60000);
             }
         }
