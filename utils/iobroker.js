@@ -27,7 +27,7 @@ function getFirstLineVersion(data) {
             return firstLine.replace('#', '').trim();
         }
     }
-    
+
     return '???';
 }
 
@@ -35,7 +35,7 @@ async function getAdapterStats(name) {
     try {
         const stats = await httpUtils.getData(`https://www.iobroker.dev/api/adapter/${name}/stats/now`);
 
-        return stats?.versions ?? {};
+        return stats ?? { total: '-', versions: {} };
     } catch {
         return {};
     }
@@ -61,20 +61,20 @@ async function collectAdapterInformation(adapterSlug, adapterData, gitHubUsernam
     const issueWorkflow = await httpUtils.getText(ioPackageUrl.replace('io-package.json', '.github/workflows/new-issue.yml'));
     const issueLockWorkflow = await httpUtils.getText(ioPackageUrl.replace('io-package.json', '.github/workflows/lock-old-issues.yml'));
     const fundingFile = await httpUtils.getText(ioPackageUrl.replace('io-package.json', '.github/FUNDING.yml'));
-    const newestStats = await getAdapterStats(ioPackageData?.common?.name);
+    const adapterStats = await getAdapterStats(ioPackageData?.common?.name);
     const betaVersion = ioPackageData?.common?.version;
 
     return {
         title: ioPackageData?.common?.titleLang?.en ?? ioPackageData?.common?.title,
         icon: ioPackageData?.common.extIcon,
         url: extractRepoUrl(ioPackageData?.common?.readme),
-        installations: adapterData?.stat ?? '-',
+        installations: adapterStats?.total ?? '-',
         version: {
             beta: betaVersion,
-            betaAge: npmData?.time?.[betaVersion] ? daysSince(npmData?.time?.[betaVersion]) : '??',
-            betaInstallations: newestStats?.[betaVersion] ?? '-',
+            betaAge: npmData?.time?.[betaVersion] ? daysSince(npmData?.time?.[betaVersion]) : '???',
+            betaInstallations: adapterStats?.versions?.[betaVersion] ?? '-',
             stable: adapterData?.stable ?? '-',
-            stableInstallations: adapterData?.stable && newestStats?.[adapterData.stable] ? newestStats?.[adapterData.stable] : '-',
+            stableInstallations: adapterData?.stable && adapterStats?.versions?.[adapterData.stable] ? adapterStats?.versions?.[adapterData.stable] : '-',
             node: packageData?.engines?.node ?? '-',
         },
         issues: adapterData?.issues ?? '-',
