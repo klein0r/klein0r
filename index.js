@@ -44,6 +44,39 @@ async function updateReadme() {
         npmPackages: [],
     };
 
+    // npm
+    const npmPackages = [
+        'axios',
+        '@types/node',
+        '@iobroker/adapter-core',
+        '@iobroker/adapter-dev',
+        '@iobroker/eslint-config',
+        '@iobroker/testing',
+        '@alcalzone/release-script',
+        '@alcalzone/release-script-plugin-iobroker',
+        '@alcalzone/release-script-plugin-license',
+        '@alcalzone/release-script-plugin-manual-review',
+    ];
+
+    const npmPackageVersions = {};
+
+    for (const npmPackage of npmPackages) {
+        const npmData = await gitHubUtils.getLatestNpmInfo(npmPackage);
+
+        if (npmData) {
+            const latestVersion = npmData?.['dist-tags']?.latest;
+
+            npmPackageVersions[npmPackage] = latestVersion;
+
+            templateData.npmPackages.push({
+                package: npmPackage,
+                version: latestVersion,
+                date: npmData?.time?.[latestVersion] ?? '-',
+            });
+        }
+    }
+
+    // ioBroker
     const ioBrokerForumData = await iobForumUtils.getUserData(forumUsernameIoBroker);
     const ioBrokerForumPosts = ioBrokerForumData.counts.posts;
     const ioBrokerForumPostsLastMonth = iobForumUtils.getPreviousMonthValue(1);
@@ -103,29 +136,6 @@ async function updateReadme() {
 
     templateData.adapters.sort((a, b) => b.installations - a.installations);
     templateData.adaptersContrib.sort((a, b) => b.installations - a.installations);
-
-    // Npm
-    const npmPackages = [
-        'axios',
-        '@iobroker/adapter-core',
-        '@iobroker/adapter-dev',
-        '@iobroker/eslint-config',
-        '@iobroker/testing',
-    ];
-
-    for (const npmPackage of npmPackages) {
-        const npmData = await gitHubUtils.getLatestNpmInfo(npmPackage);
-
-        if (npmData) {
-            const latestVersion = npmData?.['dist-tags']?.latest;
-
-            templateData.npmPackages.push({
-                package: npmPackage,
-                version: latestVersion,
-                date: npmData?.time?.[latestVersion] ?? '-',
-            });
-        }
-    }
 
     templateUtils.generateReadme(templateData);
     templateUtils.generateioBrokerAdapters(templateData);
