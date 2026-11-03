@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: checkout
         uses: actions/checkout@v7
@@ -24,8 +26,7 @@ jobs:
         run: npm install --omit=dev
       - name: Generate README file
         run: npm run update-readme
-      - name: Push new README.md
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: 'main'
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: update generated files"
+          commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
